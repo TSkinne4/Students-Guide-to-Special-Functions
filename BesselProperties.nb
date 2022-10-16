@@ -1,0 +1,635 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     31631,        625]
+NotebookOptionsPosition[     29698,        592]
+NotebookOutlinePosition[     30136,        609]
+CellTagsIndexPosition[     30093,        606]
+WindowTitle->BesselProperties
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Orthogonality and Fourier Analysis with Bessel Functions", "Title",
+ FontColor->GrayLevel[
+  0],ExpressionUUID->"028c9a7c-7427-42f5-bc4a-99b5b760b6b8"],
+
+Cell["\<\
+In the Trigg Orthogonality notebook, we discussed the general inner product \
+determining the orthogonality of two functions, introduced in equation \
+(1.16), before exploring the orthogonality of sine and cosine. Let's now take \
+a look at the orthogonality of Bessel functions, given by equation (2.32). \
+Once again, these functions do not visually appear to be perpendicular to one \
+another. In the following example, two Bessel functions of the first kind \
+will be shown, with n=1 in red and n=2 in green.\
+\>", "Text",ExpressionUUID->"f9fb7a6d-80ea-42be-8baf-feee9727f82e"],
+
+Cell[BoxData[
+ GraphicsBox[{{{}, {}, 
+    TagBox[
+     {RGBColor[1, 0, 0], AbsoluteThickness[1.6], Opacity[1.], 
+      LineBox[CompressedData["
+1:eJwV1nk4VO0fBnBbUYqy5EWilBDlLZUid7Y3WSoRIrLEW5KEFgmRPaFNQpak
+QmVJRREJlayRZcycmTlJsk1JvCr8nt9fc32umevMc855nvt7L3c7vtdDgI+P
+j5+fj+//n2YeA23VX/fpF1skab2YPqQvZCTny5bVBufovAknAyNsyExJfyxr
+jNsrTKw3GFjDvKmr5JasDeLV7cvkDdxhd2iy8orsIczVeVU718AfrHXRRpdk
+A/AiL6+ka/sFZEnvjoqTjUDJSUaD5varCBN5vDpW9hrwuP184rYc2O/PLvz2
+/Q5S47QHrvOVQnQ27MCOZYUwfUPJhqRVYpXV6MDri6U4GlitstL/NU43b0HK
+eDn0No7klnq8hUzpYoqfvwoba8466w004ilt1NiiV4NjyUubmttbUeN1S37/
+cC2cUpWNAiTb8VNlm/jDY29wT9dxdrvMRwhMFSySX9WAU2KdV8Y1urBp1uWp
+9aNGdLnIcEaFetAYod1cr96CmJF1eovKGVBMGprKG22FZWOrfYgfE0OTbOqj
+1gdEDwvLt4yycGfwRYNYQjvuP/6l/dGTDTGFe7y+vg6U2N4Y7rHnIP7IE8+s
+lZ0wPqRScYTLwcT2gr7DoV045JQoc9OVi4o7Q2mnI7pgYtjwdLc7F+EiGtZR
+sV3YMJ6kOceDC7HWB69yrnahxcQl2/swFyoHH2VQ97rwe61rpuZxLmyDi+1t
+WrsQ3TyPc/ocF0/KnzVieTeKmgLbNJK5CFhfW7rkdTfcmfH5kvVceGorZV1+
+242lt4Y7br3hwn7TuYsLmruRlsNKV3nHhe5WbTeBnm74qknN0W7kQsDwjvjo
+aDfcwvW19T9wkWgV4VUn14OAHWZT4hQX+b7GSgF+PfBULQu/P85Ful+WKO90
+D/izXTbMneDiUsCfiSPBPYg36g1xm+TC90xp08GYHuy0n/y85BcXm8+vDDLP
+6IEYK2fMZ5aL2kShzhUN5PfHZsZ759FgP6q92LacAWPnQoU8BRqtI0LD61cz
+gJXuZzuW0ajWMLG4psGAh1LWuRlFGln5dQvsNjMgrBN4YtcKGm536y8xLRhY
++3yuPKVCo//W28QvpxlYKNbvUrGOxkh849XpJga2PgqwD9hOg3q/YNy5nYF3
+iermAQY0mudb2lR3M3A8qZLrZ0jjUUyT1IVPDAwus/x11JiGb0TzdZEpsp6/
+u7ssTWmMB7XekFzZC4VuDd3W3TR+e3WkqZ3txfDrPU4tTjRsNjldXhvaiwcC
+EheuO9N4wN8ftSGiF2bq7844HKThnDJ5YltCLyxGZ9s5LjRe1cmZWt3uRZDx
+J1O2O41oJdfxMw29iNvvtTrnCA3O0NevwS29SNSv2WnrRUPnmR87vKMXakue
+6IocpTFoGdEQT/VCZNQu4bA3Dcuge1lZY71oclg4KnechmTniMVbOSakHPdf
+/SeAhnf2KcMmRSZC121/2E9c6z27+cNKJiYdg5MjT9I4JbhYmbmWCbnc4c6q
+UzR6tLSneIZMvNM2EFcJpJF58WyuzFEmricqOJYH01hjIDzj+YKJJQ6Su39H
+0ijKL1jdXc3ELr30qNAoGtpSe6x21jOhllRkJxBNQ+9Lyp01bUxU9Z+uF4yh
+seuSuvm3fibSonw6f8bS8OuxTAmUYOFPakNV8iUaE4ZjrwZlWPgkzkoUSqAR
+9CB5yFGBhSHHs1O+xBGhbH19VRZULu6/aZJII3nVic8C+iyYhzeJUkk0yk9c
+Wx9/hAV6eH7l+6s09Ht1Dkz7sNBcH6GifI1GjTEr0ieABZnye2qBxA0yKj17
+QlnY8Wj8j9J1GszKZ6HS11nIXyjUfTCZhsvqA3lRqSzozlEUf0D8OYmvfTKT
+BY+6afYE8aj7ThVGPgtCBkt2x9ygwTe/tzGjmgUxi9XuqSlkvf6hE+L1LCR0
+tR/uJZ7HUlYKe8+CeqKniPxNGhJF3v7unSxYTFtJJxOvtJ2RVR1m4flgi2dQ
+Ko37VbeNbn5nQURaT6+YWFNtx7H5kyyknC8r+Ey86U9i9TA/BR+fKXuzNBo7
+bi//t1iGgnCOyYhAOnkfKWIq9Usp7D6a26BOrJTwu4+xnMK5Deq+VsS/Aj+6
+CWlQWNJRJplG/OV4zXLZvyko8poWvyTu8CjkaG6iYJK4rJtN/NAq1tluO4Xe
+vthKxVs0UnecUvA2oRB3o4i5jThqmzvzvBkFzjv1WgdiF7VtDvk2FK7dXz+c
+RGypqC5btZ9C7YImjXzirdIy3e3OFLa7dGysIZbk/75v+jAFNRPj7FFivkmW
+lIQPuZ7pc0HBDBrDww3tKv4U/JTK1i4h7qGfXdE9Q8GwyniFKnF99x2rPcEU
++LT+pXSIHzdfXuQRTiHjmoq7KXFWbUhLYDQFV5W4Ilvi+OdHExLiKTRtvFnv
+ThxYZG+Zc5nCU3XH3OPEnndNFpQlU9CM6LI4S7w3ff37xjQKl7qlKy8Q44pi
+HDeLwumPChMXiTViFuycyCXXw+TkFWLZkClh0QIKz37k1aQQzw3or1csonCz
+b5vtLeKxI+2R2k8oyCq8KMkiZh+sNt75nIJqlVr3beLGfQ8Fnaso9Aleqc8h
+LjNPrfGrJevT/RP8f+caRIdFv6Ng3Ow7k018ZXPA9vRmCv9u/W9HJnGoputs
+UTuFLUvSHNKIvZV3vazrpiAp7rYpmdheVjeYwaIQ+nVfbyKxibiqHo+mYBQW
+ujOGeP0c6d+CAxT2v/tyPpR42W/+53+NUJh6fyPsJLHo99EzmmMUYvJTzL2I
+/+vv3Ww4SeHerR+UE/Fn5tsJ2z9kP/0s1t1D/OHDkydH+dmYkmG5GhAXvEzc
+cF2UjdctmfOViFNKz43lLWLjwV2zSwuJI/KPFL+UZoPdGNMzRfaDc7LRugFF
+NmZj+5ubic3jtUb/rGTDYqncmWfEOuEKDxers5E+LjKUQbzYZ1JdV5uNOm+D
+tV7EM+59X3dvYcPwVeaMJfHg/rb7h/TZEKyjU7SIa00KVBJM2dA1NFgzRvb7
+aYWDK7gH2GifuvTWk9htj5Yt05UNgwcZ+QbEuy7wx3WRnmDMm3CTJ1b5mvO9
+yZeNybb7tu/JeewoHah+HsHGRlcDcwXi6i/l409i2RBxqOSMkvNbIHdRtTiB
+jV73bosq4vDzmkn3Uth4OvtX3gFiLQu/g9cesMHZN9c/luTD0lCjq4nFbPCj
+4qUVsXCJ1Ju4p2yYLfTh/kVMyTxbG1ZN1mv3syCH5E38p9/TxzrYaNr+xbaA
+5NPA2cj0HX/YEP5jKH6B5N2g7ZrD2XwclMy70KpD7PJNUkBRkIPvyTFHRkg+
+mit/3ignwoF/sKyyNfGK2OhbiyQ4sN7a+GQRyddWm0bv6VUc7B6I8bAh+fvP
+aOncIFUO1n68mDdJ8rki+lbWf+oc7BHbUH+T+N5zn44f6zg4/Od+LIPkeYjS
+Yr3BLRxoRrdt3UXyX2N4n2iXJQdD5/dYz5D5UGZjURW3h4NCe8sHkcRGlYb+
++tYctCm15IsSOySs680lvaxF9nGKJJkvsVrzCgLcOej8W3+rJJlH/QEVZhKB
+HPDONt5tCyPzhlUyUxfEAXtvn6sR8bRJXklgCAevcztePz5PQ0omWY57gYPB
+5BvnkkLJ/5UfHyxM4GDzT7naLWT+ZU2viLO8w0G+oGyV+RmyXk9Zff57HAgs
+cB67d5rGs2bxsdI8DsSlhpsEiJsz/+xfWsjBnM1GIaVk3k4bdKoNlXOgmhlR
+L+xP1h8V+y6mhYN2ma/zfY6R/BP/JlL7iwPlzlrpra7kvFTGRe+c5mAmW8ch
+kPSHK96r5rbMcmB4fOWpZ6RfSDQ4CDKEuBh5UamtRfqHRGTdNE+MC7uU4y2S
+jjQW/U4dk1fmQn6MkZBjQ2PBFxOmvzkXnVsSGJ//IflyneMwZckFZTpPl484
+3jioJ2QPFznvx07KmpDzfbuoM3YfF6rJJ4NMjWjMd5JvyzxIvm+afpMCGiLt
+3+re+3Nh/ldQsIAODaGqtELldC5yc5IX/15Ng6FnbMrO4ML4RXsyg/S1wufD
+nNRsLhys5N+UrSL3/3SbhMQ9LpIc7dROKNMofsgO4CshvfOH539tpA86pytv
+ZZFeO3rDnWMtTfZDYEFt8g8u1tSX9+znp3FU+0XPPHMaypLa7FMfuahu/fig
+zJL0si23Fed1cCF97Fvov3tIzwlvVEolfbcqd5VK3T7ynE0mPMpauJCUSfI7
+T57rm+J5fP2kL7+YOiQ6Sd5T8VUqec5LLkSrxLb1ZdEQOyDgZ5fLRcFOt6yX
+E6SnHbxgutuXi59Dcov6kz9hO75tu8xH+rr1DsFrxn04yVNVUj3JQahpZGZp
+fx+53wYzmzo2lrPMunMiP2NfSFuwcCyFrZsjrsmu78d3ve91ypIsHFjWMsXf
+3o8W61GRo2m9+NlwifYN+4KZ6Wgtma89SBFyDti7cgBH2qKlnPS6IUk9uS1Q
+O4ARvrkaIRGdmBMcZrPlxFcUFzrZz17tAF+ecyEtMYjl/D9FmKUf4JdaeEmi
+ZhBDRVKHDTNbUbkmRmSxzxD2foK3r3gTFpv5aYSLDUOphbcg/693YGq2tgdW
+DIO1N85wtroWRRlY2ec8AvaMuGvtw2o4FW5arDAzgplTP4M6ncpxPjI7jJk/
+CqVQC4/fFUV4OKCQJmbBQ375ctua6GzE3Ip0oXbxEKJ/UU3IIBuH9o6semTF
+w99yClFmv7KwtKKiyNKOhxNeIeN93lmIS3Ssj3fjIS/6U+ntOxk4vOnm9/mB
+PJLP7h/l9VKxIkLKVPguDw2Kp75G+l3GjM65hV33edAKr3tq3J+EnpFPH+4W
+8BAxKKwl5pCEJLvHTv8U87D3h19J+IUEzKrv9Y+s4MEiPa7dWjkOzLbEDMF2
+HhKSvbSX/RuGsqhJ9/aPPPCe1WpN7z6Pa7oH1XK6eRg/EKHdfyIE5rlrSw0p
+Hpq6pDaYLjmL52ea3oV95eGD2CNpXdcTSNbcmGg1zMOXFbffMA774ASdbrOc
+x4O02w79DHEvqFp4s6vHedBxu2th5OwKIf6OO0mTPFS9PuVgvsABnCe6Xi6/
+eHgo0vij9YAVKrxy1mlN82Cv1eyodcAANxRFf87O8jAbaLTlzoCL/v8A19U6
+4A==
+       "]]},
+     Annotation[#, "Charting`Private`Tag$2874149#1"]& ], 
+    TagBox[
+     {RGBColor[0, 1, 0], AbsoluteThickness[1.6], Opacity[1.], 
+      LineBox[CompressedData["
+1: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
+       "]]},
+     Annotation[#, "Charting`Private`Tag$2874149#2"]& ]}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{
+   "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultMeshStyle" -> 
+    AbsolutePointSize[6], "ScalingFunctions" -> None, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0, 1}, {-0.3461261961974533, 0.581865203697927}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",ExpressionUUID->"069097ee-0499-\
+471d-8f06-833f5027899a"],
+
+Cell["\<\
+Let's now try graphing the integrand of equation (2.32), where m is the order \
+of the Bessel function, n1 and n2 are the nth zeroes of the Bessel function, \
+and a is our arbitrary starting point. The opaque blue curve represents the \
+integrand of equation (2.32), while the red and green curves represent the \
+individual Bessel functions, which have been initialized to the previously \
+discussed situation with n=1 and n=2. The result of equation (2.32) is also \
+included above the graph.\
+\>", "Text",ExpressionUUID->"70d6e41d-3b89-4a4c-8bf4-cb8561c05207"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 1, $CellContext`m$$ = 
+    0, $CellContext`n1$$ = 1, $CellContext`n2$$ = 2, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`m$$], 0}, -10, 10, 1}, {{
+       Hold[$CellContext`n1$$], 1}, 1, 10, 1}, {{
+       Hold[$CellContext`n2$$], 2}, 1, 10, 1}, {
+      Hold[$CellContext`a$$], 1, 10, 1}}, Typeset`size$$ = {
+    360., {118., 122.5280144986883}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 1, $CellContext`m$$ = 
+        0, $CellContext`n1$$ = 1, $CellContext`n2$$ = 2}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Plot[{$CellContext`x 
+         BesselJ[$CellContext`m$$, (
+            BesselJZero[$CellContext`m$$, $CellContext`n1$$] \
+$CellContext`x)/$CellContext`a$$] 
+         BesselJ[$CellContext`m$$, (
+            BesselJZero[$CellContext`m$$, $CellContext`n2$$] \
+$CellContext`x)/$CellContext`a$$], 
+         BesselJ[1, BesselJZero[1, 1] $CellContext`x], 
+         BesselJ[1, BesselJZero[1, 2] $CellContext`x]}, {$CellContext`x, 
+         0, $CellContext`a$$}, Filling -> {1 -> Axis}, PlotLabel -> Style[
+          Framed[
+           
+           Integrate[$CellContext`x 
+            BesselJ[$CellContext`m$$, (
+               BesselJZero[$CellContext`m$$, $CellContext`n1$$] \
+$CellContext`x)/$CellContext`a$$] 
+            BesselJ[$CellContext`m$$, (
+               BesselJZero[$CellContext`m$$, $CellContext`n2$$] \
+$CellContext`x)/$CellContext`a$$], {$CellContext`x, 0, $CellContext`a$$}]]], 
+        PlotStyle -> {Blue, 
+          Directive[Red, 
+           Opacity[0.2]], 
+          Directive[Green, 
+           Opacity[0.2]]}], 
+      "Specifications" :> {{{$CellContext`m$$, 0}, -10, 10, 
+         1}, {{$CellContext`n1$$, 1}, 1, 10, 1}, {{$CellContext`n2$$, 2}, 1, 
+         10, 1}, {$CellContext`a$$, 1, 10, 1}}, 
+      "Options" :> {FrameLabel -> "Bessel Functions"}, "DefaultOptions" :> {}],
+     ImageSizeCache->{408., {203., 209.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",ExpressionUUID->"36ea6db2-\
+257e-46e4-9cd0-2378d9f3a814"],
+
+Cell["\<\
+Here we can clearly see that the area under the curve (the shaded area) \
+totals to zero when we expect the functions to be orthogonal, but that it \
+totals to some nonzero value when the functions are not orthogonal. Try out \
+adjusting the sliders to convince yourself of these conclusions. Let's take a \
+look next at an application of this orthogonality relationship: Fourier \
+Analysis with Bessel Functions.\
+\>", "Text",ExpressionUUID->"f43385e8-5c1f-4238-8f7f-795326909dcf"],
+
+Cell["\<\
+As discussed previously, Fourier analysis makes use of the orthogonality of a \
+special function to 'pick out' individual terms and find their coefficients. \
+For Bessel functions of the first kind, the Fourier expansion is introduced \
+in equation (2.35), restated below:\
+\>", "Text",ExpressionUUID->"22f39e93-e735-4bac-873e-b36af2d78351"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{
+   RowBox[{"f", "[", "\[Rho]", "]"}], "=", 
+   RowBox[{
+    UnderoverscriptBox["\[Sum]", 
+     RowBox[{"n", "=", "1"}], "\[Infinity]"], 
+    RowBox[{"c_mn", " ", 
+     RowBox[{"J", "[", 
+      RowBox[{
+       RowBox[{"k_", "[", 
+        RowBox[{"m", ",", "n"}], "]"}], " ", "\[Rho]"}], "]"}]}]}]}],
+  HoldForm]], "Output",ExpressionUUID->"bb263433-22da-4a7f-a6ac-e607566faf61"],
+
+Cell["\<\
+ This Fourier-Bessel series is more specific in utility than the Fourier \
+series with sine and cosine, often being used as solutions to differential \
+equations. To get a better sense of using Fourier analysis with Bessel \
+functions, let's look at a few examples.\
+\>", "Text",ExpressionUUID->"69a0a46d-eeaf-41bb-b7a3-954ea866ba78"],
+
+Cell["\<\
+First, we'll try a very simple function, f(x)=1, for 0<x<1. Using the \
+orthogonality of Bessel functions of the first kind, our coefficients will be:\
+\>", "Text",ExpressionUUID->"0dde5ef2-9c35-4507-8023-6a875f546d0f"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"c_mn", "=", 
+   FractionBox[
+    RowBox[{
+     SubsuperscriptBox["\[Integral]", "0", "1"], 
+     RowBox[{
+      RowBox[{"x", " ", 
+       RowBox[{"BesselJ", "[", 
+        RowBox[{"m", ",", 
+         RowBox[{
+          RowBox[{"BesselJZero", "[", 
+           RowBox[{"m", ",", "n"}], "]"}], " ", "x"}]}], "]"}]}], 
+      RowBox[{"\[DifferentialD]", "x"}]}]}], 
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     SuperscriptBox[
+      RowBox[{"BesselJ", "[", 
+       RowBox[{
+        RowBox[{"m", "+", "1"}], ",", 
+        RowBox[{"BesselJZero", "[", 
+         RowBox[{"m", ",", "n"}], "]"}]}], "]"}], "2"]}]]}],
+  HoldForm]], "Output",ExpressionUUID->"d7e93562-a2eb-4de7-adf1-064148f96012"],
+
+Cell["\<\
+Evaluating these expressions, and plugging them into equation (2.35) gives us \
+our Fourier-Bessel series. In the figure, the dotted red curve is our \
+function f(x), while the blue curve is our Fourier-Bessel Series. Using the \
+slider to increase n, you will see that adding in more terms makes our \
+approximation more accurate.\
+\>", "Text",ExpressionUUID->"501d3fb9-54a2-4831-aabc-39de733b91c7"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`m$$ = 1, $CellContext`n$$ = 1, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 1}, 1, 10, 1}, {{
+       Hold[$CellContext`m$$], 1}, 0, 10, 1}}, Typeset`size$$ = {
+    360., {108., 112.99630125933996`}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`m$$ = 1, $CellContext`n$$ = 1}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        Plot[1, {$CellContext`x, 0, 1}, PlotStyle -> {Red, Dashed, Thick}], 
+        Plot[
+         NSum[((2^(1 - $CellContext`m$$) 
+            BesselJZero[$CellContext`m$$, $CellContext`i]^$CellContext`m$$ 
+            HypergeometricPFQ[{1 + $CellContext`m$$/2}, {
+              2 + $CellContext`m$$/2, 1 + $CellContext`m$$}, (-(1/4)) 
+              BesselJZero[$CellContext`m$$, $CellContext`i]^2])/((
+            2 + $CellContext`m$$) BesselJ[1 + $CellContext`m$$, 
+              BesselJZero[$CellContext`m$$, $CellContext`i]]^2 
+           Gamma[1 + $CellContext`m$$])) 
+          BesselJ[$CellContext`m$$, 
+            BesselJZero[$CellContext`m$$, $CellContext`i] $CellContext`x], \
+{$CellContext`i, $CellContext`n$$}], {$CellContext`x, 0, 1}, PlotPoints -> 
+         ControlActive[30, 150]]], 
+      "Specifications" :> {{{$CellContext`n$$, 1}, 1, 10, 
+         1}, {{$CellContext`m$$, 1}, 0, 10, 1}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{408., {162., 168.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",ExpressionUUID->"df1642c3-\
+8fb4-428d-bc3c-86008ee461aa"],
+
+Cell["\<\
+Note that the values for n and m are limited to smaller numbers. This is \
+simply to make sure the expression runs more efficiently, as higher values \
+for n and m take longer to run. As a further note, changing the n and m \
+values for the Fourier-Bessel fit might make the displayed graph disappear or \
+instead display an '$Aborted' message. This just means that the graph is not \
+displayed while Mathematica finishes running calculations, so if you let it \
+run for some time, the graph should eventually appear. If worse comes to \
+worse, you can close and reopen the notebook. \
+\>", "Text",ExpressionUUID->"daeede7b-66c3-4205-9f05-0e067cdc3a10"],
+
+Cell["\<\
+Let's now take a look at another simple function, f(x)=x (represented by the \
+dotted red curve), for 0<x<1, while the Fourier-Bessel Series is represented \
+by the blue curve. We find the following:\
+\>", "Text",ExpressionUUID->"feab5048-fd80-422c-83a7-fba3655b6e6d"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`m$$ = 1, $CellContext`n$$ = 1, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 1}, 1, 10, 1}, {{
+       Hold[$CellContext`m$$], 1}, 0, 10, 1}}, Typeset`size$$ = {
+    360., {108., 112.99630125934002`}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`m$$ = 1, $CellContext`n$$ = 1}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        Plot[$CellContext`x, {$CellContext`x, 0, 1}, 
+         PlotStyle -> {Red, Dashed, Thick}], 
+        Plot[
+         NSum[((2^(-$CellContext`m$$) 
+            BesselJZero[$CellContext`m$$, $CellContext`i]^$CellContext`m$$ 
+            Gamma[(3 + $CellContext`m$$)/2] 
+            HypergeometricPFQRegularized[{(3 + $CellContext`m$$)/2}, {
+              1 + $CellContext`m$$, (5 + $CellContext`m$$)/2}, (-(1/4)) 
+              BesselJZero[$CellContext`m$$, $CellContext`i]^2])/
+           BesselJ[1 + $CellContext`m$$, 
+             BesselJZero[$CellContext`m$$, $CellContext`i]]^2) 
+          BesselJ[$CellContext`m$$, 
+            BesselJZero[$CellContext`m$$, $CellContext`i] $CellContext`x], \
+{$CellContext`i, $CellContext`n$$}], {$CellContext`x, 0, 1}, PlotPoints -> 
+         ControlActive[30, 150]]], 
+      "Specifications" :> {{{$CellContext`n$$, 1}, 1, 10, 
+         1}, {{$CellContext`m$$, 1}, 0, 10, 1}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{408., {162., 168.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",ExpressionUUID->"6389dd42-\
+d905-401b-88c5-df561cc980fb"],
+
+Cell["\<\
+Starting from this point, it is clear that we can expand these examples to \
+match the square and sawtooth waveforms from the Trigg Fourier Series \
+notebook.\
+\>", "Text",ExpressionUUID->"5d7006f2-c9bc-4cbc-a5ac-14faea7ca831"]
+}, Open  ]]
+},
+WindowSize->{582, 654},
+WindowMargins->{{423, Automatic}, {Automatic, 40.5}},
+WindowTitle->"BesselProperties",
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"13b7b6a1-8de0-4e08-a47c-c61060f39e14"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[610, 23, 157, 2, 219, "Title",ExpressionUUID->"028c9a7c-7427-42f5-bc4a-99b5b760b6b8"],
+Cell[770, 27, 591, 8, 166, "Text",ExpressionUUID->"f9fb7a6d-80ea-42be-8baf-feee9727f82e"],
+Cell[1364, 37, 15692, 279, 230, "Output",ExpressionUUID->"069097ee-0499-471d-8f06-833f5027899a"],
+Cell[17059, 318, 573, 8, 166, "Text",ExpressionUUID->"70d6e41d-3b89-4a4c-8bf4-cb8561c05207"],
+Cell[17635, 328, 2979, 63, 431, "Output",ExpressionUUID->"36ea6db2-257e-46e4-9cd0-2378d9f3a814"],
+Cell[20617, 393, 492, 7, 70, "Text",ExpressionUUID->"f43385e8-5c1f-4238-8f7f-795326909dcf"],
+Cell[21112, 402, 351, 5, 70, "Text",ExpressionUUID->"22f39e93-e735-4bac-873e-b36af2d78351"],
+Cell[21466, 409, 411, 12, 70, "Output",ExpressionUUID->"bb263433-22da-4a7f-a6ac-e607566faf61"],
+Cell[21880, 423, 344, 5, 70, "Text",ExpressionUUID->"69a0a46d-eeaf-41bb-b7a3-954ea866ba78"],
+Cell[22227, 430, 229, 3, 70, "Text",ExpressionUUID->"0dde5ef2-9c35-4507-8023-6a875f546d0f"],
+Cell[22459, 435, 724, 22, 70, "Output",ExpressionUUID->"d7e93562-a2eb-4de7-adf1-064148f96012"],
+Cell[23186, 459, 410, 6, 70, "Text",ExpressionUUID->"501d3fb9-54a2-4831-aabc-39de733b91c7"],
+Cell[23599, 467, 2440, 48, 70, "Output",ExpressionUUID->"df1642c3-8fb4-428d-bc3c-86008ee461aa"],
+Cell[26042, 517, 663, 9, 70, "Text",ExpressionUUID->"daeede7b-66c3-4205-9f05-0e067cdc3a10"],
+Cell[26708, 528, 278, 4, 70, "Text",ExpressionUUID->"feab5048-fd80-422c-83a7-fba3655b6e6d"],
+Cell[26989, 534, 2453, 49, 70, "Output",ExpressionUUID->"6389dd42-d905-401b-88c5-df561cc980fb"],
+Cell[29445, 585, 237, 4, 70, "Text",ExpressionUUID->"5d7006f2-c9bc-4cbc-a5ac-14faea7ca831"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

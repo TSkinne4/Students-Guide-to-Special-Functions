@@ -1,0 +1,390 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     16387,        380]
+NotebookOptionsPosition[     14376,        346]
+NotebookOutlinePosition[     14816,        363]
+CellTagsIndexPosition[     14773,        360]
+WindowTitle->TriggFourierSeries
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Fourier Analysis with ''Trigg'' Functions - The Fourier Series\
+\>", "Title",
+ FontColor->GrayLevel[
+  0],ExpressionUUID->"ed55f597-fdf0-4ca5-970d-92c8a82c10b5"],
+
+Cell["\<\
+In the ''Trigg's Equation'' chapter of the guide, we discussed how sine and \
+cosine can be used as a basis to create a series - the Fourier Series, \
+introduced in equation (1.24). This equation, restated below:\
+\>", "Text",ExpressionUUID->"27c545f4-30f1-44ee-99f7-12a5df7e81f0"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{
+   RowBox[{"f", "[", "x", "]"}], "=", 
+   RowBox[{
+    RowBox[{"a_", " ", "0"}], "+", 
+    RowBox[{
+     UnderoverscriptBox["\[Sum]", 
+      RowBox[{"n", "=", "1"}], "\[Infinity]"], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"a_n", " ", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"k_n", " ", "x"}], "]"}]}], "+", 
+       RowBox[{"b_n", " ", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"k_n", " ", "x"}], "]"}]}]}], ")"}]}]}]}],
+  HoldForm]], "Output",ExpressionUUID->"c40ed7b5-d219-4626-87df-0f9e1406eb85"],
+
+Cell["\<\
+makes use of the orthogonality of sine and cosine to 'pick out' individual \
+terms and find their coefficients. This process involving the inner product \
+should feel more intuitive at this point, as we have previously explored it \
+at length in the Trigg Orthogonality notebook. Let's take a look at a few \
+examples of using the Fourier Series.\
+\>", "Text",ExpressionUUID->"3a29b09f-9b0d-4d6d-a6a6-0dc0b430a902"],
+
+Cell["\<\
+First, we'll try a simple function that you are undoubtedly familiar with, \
+the parabola. Let's set\
+\>", "Text",ExpressionUUID->"9cd01c99-b1d2-44b3-9bf9-52d632314319"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{
+   RowBox[{"f", "[", "x", "]"}], "=", 
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"x", "-", "5"}], ")"}], "2"]}],
+  HoldForm]], "Output",ExpressionUUID->"7360ddcf-bb2a-4050-8c95-47cbd0c8c726"],
+
+Cell["\<\
+for 0<x<10 and find the coefficients for the Fourier Series. Using the \
+orthogonality of sine and cosine, our coefficients will be:\
+\>", "Text",ExpressionUUID->"e177519d-d328-427c-a68a-9e0dd17f07d9"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{
+   RowBox[{"a_", " ", "0"}], "=", 
+   FractionBox[
+    RowBox[{
+     SubsuperscriptBox["\[Integral]", 
+      RowBox[{"x_", " ", "0"}], 
+      RowBox[{
+       RowBox[{"x_", " ", "0"}], "+", "\[Lambda]"}]], 
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"x", "-", "5"}], ")"}], "2"], 
+      RowBox[{"\[DifferentialD]", "x"}]}]}], "\[Lambda]"]}],
+  HoldForm]], "Output",ExpressionUUID->"f7fe376c-6ce8-408a-9d12-8f91a1eee74c"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"a_n", "=", 
+   FractionBox[
+    RowBox[{"2", " ", 
+     RowBox[{
+      SubsuperscriptBox["\[Integral]", 
+       RowBox[{"x_", " ", "0"}], 
+       RowBox[{
+        RowBox[{"x_", " ", "0"}], "+", "\[Lambda]"}]], 
+      RowBox[{
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"x", "-", "5"}], ")"}], "2"], " ", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"k_n", " ", "x"}], "]"}]}], 
+       RowBox[{"\[DifferentialD]", "x"}]}]}]}], "\[Lambda]"]}],
+  HoldForm]], "Output",ExpressionUUID->"26fb760a-22c8-4dec-842d-c3009db4ea43"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"b_n", "=", 
+   FractionBox[
+    RowBox[{"2", " ", 
+     RowBox[{
+      SubsuperscriptBox["\[Integral]", 
+       RowBox[{"x_", " ", "0"}], 
+       RowBox[{
+        RowBox[{"x_", " ", "0"}], "+", "\[Lambda]"}]], 
+      RowBox[{
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"x", "-", "5"}], ")"}], "2"], " ", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"k_n", " ", "x"}], "]"}]}], 
+       RowBox[{"\[DifferentialD]", "x"}]}]}]}], "\[Lambda]"]}],
+  HoldForm]], "Output",ExpressionUUID->"494b4c76-8ec8-4bad-a6eb-be7ea3121ec2"],
+
+Cell["\<\
+Evaluating these expressions, and plugging them into equation (1.24) gives us \
+the Fourier Series for our parabola. In the figure, the dotted red curve is \
+our function f(x), while the blue curve is our Fourier Series. Using the \
+slider to increase n, you will see that adding in more terms makes our \
+approximation more accurate.\
+\>", "Text",ExpressionUUID->"424d8eaa-8964-4764-b307-03955325fbf8"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`n$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`n$$], 1, 50, 1}}, Typeset`size$$ = {
+    360., {109., 113.79364500213313`}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`n$$ = 1}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        Plot[($CellContext`x - 5)^2, {$CellContext`x, 0, 10}, 
+         PlotStyle -> {Red, Dashed, Thick}], 
+        Plot[
+        25/3 + Sum[(
+             25 (4 $CellContext`i Pi 
+               Cos[$CellContext`i Pi]^2 + (-2 + $CellContext`i^2 Pi^2) 
+               Sin[2 $CellContext`i Pi])/($CellContext`i^3 Pi^3)) 
+            Cos[2 $CellContext`i Pi ($CellContext`x/10)] + (50 
+             Sin[$CellContext`i Pi] (
+              2 $CellContext`i Pi 
+               Cos[$CellContext`i Pi] + (-2 + $CellContext`i^2 Pi^2) 
+               Sin[$CellContext`i Pi])/($CellContext`i^3 Pi^3)) 
+            Sin[2 $CellContext`i 
+              Pi ($CellContext`x/
+               10)], {$CellContext`i, $CellContext`n$$}], {$CellContext`x, 0, 
+          10}, PlotPoints -> ControlActive[30, 150]]], 
+      "Specifications" :> {{$CellContext`n$$, 1, 50, 1}}, 
+      "Options" :> {FrameLabel -> "For a parabola"}, "DefaultOptions" :> {}],
+     ImageSizeCache->{408., {160., 166.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",ExpressionUUID->"cd91b665-\
+ae3e-49c7-a561-b1629002b43d"],
+
+Cell["\<\
+Although we can certainly continue using the Fourier Series to represent some \
+arbitrary simple function, let us instead turn our attention to a more useful \
+and interesting application: creating different waves. The periodic nature of \
+sine and cosine make them especially useful for creating other periodic \
+waveforms, such as a square or sawtooth wave. Starting with the square wave, \
+let's use the process outlined previously to find the coefficients, and \
+create a figure.\
+\>", "Text",ExpressionUUID->"d9637297-40c0-4132-9dad-cca295552ca7"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`n$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`n$$], 1, 50, 1}}, Typeset`size$$ = {
+    360., {108., 112.99630125934004`}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`n$$ = 1}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        Plot[
+        HeavisideTheta[$CellContext`x - 2.5] - 
+         HeavisideTheta[$CellContext`x - 5] + 
+         HeavisideTheta[$CellContext`x - 7.5], {$CellContext`x, 0, 10}, 
+         PlotStyle -> {Red, Dashed, Thick}], 
+        Plot[
+        0.5 + Sum[((1/(
+              5 $CellContext`i)) ((-1.5915494309189533`) 
+               Sin[$CellContext`i Pi/2] + 
+              1.5915494309189537` Sin[$CellContext`i Pi] - 
+              1.5915494309189533` Sin[3 $CellContext`i Pi/2] + 
+              1.591549430918953 Sin[2 $CellContext`i Pi])) 
+            Cos[2 $CellContext`i Pi ($CellContext`x/10)] + ((1/(
+              5 $CellContext`i)) (
+              1.5915494309189533` Cos[$CellContext`i Pi/2] - 
+              1.5915494309189537` Cos[$CellContext`i Pi] + 
+              1.5915494309189533` Cos[3 $CellContext`i Pi/2] - 
+              1.591549430918953 Cos[2 $CellContext`i Pi])) 
+            Sin[2 $CellContext`i 
+              Pi ($CellContext`x/
+               10)], {$CellContext`i, $CellContext`n$$}], {$CellContext`x, 0, 
+          10}, PlotPoints -> ControlActive[30, 150]], 
+        ParametricPlot[{2.5, $CellContext`t}, {$CellContext`t, 0, 1}, 
+         PlotStyle -> {Red, Dashed, Thick}], 
+        ParametricPlot[{5, $CellContext`t}, {$CellContext`t, 0, 1}, 
+         PlotStyle -> {Red, Dashed, Thick}], 
+        ParametricPlot[{7.5, $CellContext`t}, {$CellContext`t, 0, 1}, 
+         PlotStyle -> {Red, Dashed, Thick}], 
+        ParametricPlot[{10, $CellContext`t}, {$CellContext`t, 0, 1}, 
+         PlotStyle -> {Red, Dashed, Thick}]], 
+      "Specifications" :> {{$CellContext`n$$, 1, 50, 1}}, 
+      "Options" :> {FrameLabel -> "For a square wave"}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{408., {159., 165.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",ExpressionUUID->"192a9564-\
+37e4-44e6-92ae-e10e72300ba3"],
+
+Cell["\<\
+Here we can more clearly see how drastic the difference is between a low n \
+value, like n=5, and a higher n value, like n=45. Moving on to the sawtooth \
+wave, we find the following:\
+\>", "Text",ExpressionUUID->"a9e59fb5-f3fa-496b-9ed6-112995da8166"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`n$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`n$$], 1, 50, 1}}, Typeset`size$$ = {
+    360., {108., 112.99630125934004`}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`n$$ = 1}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        Plot[$CellContext`x/5 - 
+         HeavisideTheta[$CellContext`x - 5], {$CellContext`x, 0, 10}, 
+         PlotStyle -> {Red, Dashed, Thick}], 
+        Plot[
+        0.5 + Sum[(($CellContext`i Pi + 
+              2 $CellContext`i Pi Cos[$CellContext`i Pi] - 2 
+              Sin[$CellContext`i Pi]) 
+             Sin[$CellContext`i Pi]/($CellContext`i^2 Pi^2)) 
+            Cos[2 $CellContext`i 
+              Pi ($CellContext`x/
+               10)] + (-(($CellContext`i Pi 
+                Cos[$CellContext`i Pi] + $CellContext`i Pi 
+                Cos[2 $CellContext`i Pi] - Sin[
+               2 $CellContext`i Pi])/($CellContext`i^2 Pi^2))) 
+            Sin[2 $CellContext`i 
+              Pi ($CellContext`x/
+               10)], {$CellContext`i, $CellContext`n$$}], {$CellContext`x, 0, 
+          10}, PlotPoints -> ControlActive[30, 150]], 
+        ParametricPlot[{5, $CellContext`t}, {$CellContext`t, 0, 1}, 
+         PlotStyle -> {Red, Dashed, Thick}], 
+        ParametricPlot[{10, $CellContext`t}, {$CellContext`t, 0, 1}, 
+         PlotStyle -> {Red, Dashed, Thick}]], 
+      "Specifications" :> {{$CellContext`n$$, 1, 50, 1}}, 
+      "Options" :> {FrameLabel -> "For a sawtooth wave"}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{408., {159., 165.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",ExpressionUUID->"ee90b68d-\
+11fd-4f3e-95a7-408ac25f99d7"],
+
+Cell["\<\
+where we start to find a fairly accurate approximation upwards of n=25. The \
+accuracy of a Fourier Series is limited only by the number of terms used, and \
+as we have seen here, we can pretty quickly find close approximations of \
+other periodic waveforms.\
+\>", "Text",ExpressionUUID->"832ae5e2-1e65-4886-8e15-0493533276c9"],
+
+Cell["\<\
+It is important to familiarize yourself with Fourier analysis with ''Trigg'' \
+Functions, as they provide a useful and intuitive application for the \
+orthogonal properties of sine and cosine. Moving forward, we will see Fourier \
+analysis with Bessel functions, where a similar process will be applied.\
+\>", "Text",ExpressionUUID->"fdf804be-e0eb-489b-97c1-fc70e76564ba"]
+}, Open  ]]
+},
+WindowSize->{582, 654},
+WindowMargins->{{423, Automatic}, {Automatic, 40.5}},
+WindowTitle->"TriggFourierSeries",
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"572c6b34-c480-4144-ae70-e6d278e0f869"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[612, 23, 171, 4, 219, "Title",ExpressionUUID->"ed55f597-fdf0-4ca5-970d-92c8a82c10b5"],
+Cell[786, 29, 291, 4, 78, "Text",ExpressionUUID->"27c545f4-30f1-44ee-99f7-12a5df7e81f0"],
+Cell[1080, 35, 554, 17, 58, "Output",ExpressionUUID->"c40ed7b5-d219-4626-87df-0f9e1406eb85"],
+Cell[1637, 54, 425, 6, 122, "Text",ExpressionUUID->"3a29b09f-9b0d-4d6d-a6a6-0dc0b430a902"],
+Cell[2065, 62, 179, 3, 56, "Text",ExpressionUUID->"9cd01c99-b1d2-44b3-9bf9-52d632314319"],
+Cell[2247, 67, 233, 7, 32, "Output",ExpressionUUID->"7360ddcf-bb2a-4050-8c95-47cbd0c8c726"],
+Cell[2483, 76, 211, 3, 56, "Text",ExpressionUUID->"e177519d-d328-427c-a68a-9e0dd17f07d9"],
+Cell[2697, 81, 483, 15, 56, "Output",ExpressionUUID->"f7fe376c-6ce8-408a-9d12-8f91a1eee74c"],
+Cell[3183, 98, 594, 18, 56, "Output",ExpressionUUID->"26fb760a-22c8-4dec-842d-c3009db4ea43"],
+Cell[3780, 118, 594, 18, 56, "Output",ExpressionUUID->"494b4c76-8ec8-4bad-a6eb-be7ea3121ec2"],
+Cell[4377, 138, 413, 6, 122, "Text",ExpressionUUID->"424d8eaa-8964-4764-b307-03955325fbf8"],
+Cell[4793, 146, 2308, 47, 70, "Output",ExpressionUUID->"cd91b665-ae3e-49c7-a561-b1629002b43d"],
+Cell[7104, 195, 562, 8, 70, "Text",ExpressionUUID->"d9637297-40c0-4132-9dad-cca295552ca7"],
+Cell[7669, 205, 3087, 62, 70, "Output",ExpressionUUID->"192a9564-37e4-44e6-92ae-e10e72300ba3"],
+Cell[10759, 269, 262, 4, 70, "Text",ExpressionUUID->"a9e59fb5-f3fa-496b-9ed6-112995da8166"],
+Cell[11024, 275, 2611, 54, 70, "Output",ExpressionUUID->"ee90b68d-11fd-4f3e-95a7-408ac25f99d7"],
+Cell[13638, 331, 337, 5, 70, "Text",ExpressionUUID->"832ae5e2-1e65-4886-8e15-0493533276c9"],
+Cell[13978, 338, 382, 5, 70, "Text",ExpressionUUID->"fdf804be-e0eb-489b-97c1-fc70e76564ba"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
