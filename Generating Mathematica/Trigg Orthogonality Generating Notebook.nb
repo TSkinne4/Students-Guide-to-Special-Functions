@@ -1,0 +1,998 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     43022,        988]
+NotebookOptionsPosition[     42299,        967]
+NotebookOutlinePosition[     42710,        983]
+CellTagsIndexPosition[     42667,        980]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"TriggOrthogonality", "=", 
+  RowBox[{"CreateDocument", "[", 
+   RowBox[{
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"TextCell", "[", 
+       RowBox[{
+       "\"\<Orthogonality of ''Trigg'' Functions\>\"", ",", "\"\<Title\>\"", 
+        ",", 
+        RowBox[{"FontColor", "\[Rule]", "Black"}]}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"TextCell", "[", "\[IndentingNewLine]", 
+       RowBox[{
+       "\"\<In the ''Trigg's Equation'' chapter of the guide, the general \
+inner product determining the orthogonality of two functions was introduced \
+in equation (1.16). This equation, restated below:\>\"", ",", 
+        "\"\<Text\>\""}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ExpressionCell", "[", 
+       RowBox[{
+        RowBox[{"HoldForm", "[", 
+         RowBox[{"Integrate", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"f", "[", "x", "]"}], "*", 
+            RowBox[{"g", "[", "x", "]"}], "*", 
+            RowBox[{"w", "[", "x", "]"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", "a", ",", "b"}], "}"}]}], "]"}], "]"}], ",", 
+        "\"\<Output\>\""}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"TextCell", "[", "\[IndentingNewLine]", 
+       RowBox[{
+       "\"\<may initially not feel particularly intuitive. As such, we \
+discussed that orthogonality is similar to the idea of perpendicularity in \
+certain situations. This, however, can be slightly misleading, as some may \
+then expect that two functions are orthogonal if they appear to be \
+perpendicular to one another. Take a simple example of the orthogonality of \
+two sine functions. In the following example, sin(x) will be represented in \
+red, while sin(2x) will be represented in green. We expect that, over the \
+period 2Pi, these functions will be orthogonal, by the orthogonality integral \
+given in equation (1.16). Let's take a look.\>\"", ",", "\"\<Text\>\""}], 
+       "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{"TextCell", "[", 
+         RowBox[{
+         "\"\<As previously discussed, orthogonality is similar to the idea \
+of perpendicularity in certain situations. This, however, can be slightly \
+misleading, as some may then expect that two functions are orthogonal if they \
+appear to be perpendicular to one another. Take a simple example of the \
+orthogonality of two Sine functions. In the following example, sin(x) will be \
+represented in red, while sin(2x) will be represented in green. We expect \
+that, over the period 2Pi, these functions will be orthogonal, by equation \
+(16) in the ''Trigg's Equation'' chapter of the guide. Let's take a \
+look.\>\"", ",", "\"\<Text\>\""}], "]"}], ","}], "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"ExpressionCell", "[", 
+       RowBox[{
+        RowBox[{"Plot", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Sin", "[", "x", "]"}], ",", 
+            RowBox[{"Sin", "[", 
+             RowBox[{"2", "*", "x"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"x", ",", "0", ",", 
+            RowBox[{"2", "*", "Pi"}]}], "}"}], ",", 
+          RowBox[{"PlotStyle", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"Red", ",", "Green"}], "}"}]}]}], "]"}], ",", 
+        "\"\<Output\>\""}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"TextCell", "[", 
+       RowBox[{
+       "\"\<From a purely visual standpoint, these functions do not appear to \
+be perpendicular, so you might not immediately believe that they are \
+orthogonal. Taking the inner product, however, confirms that the functions \
+are orthogonal, as it does indeed give 0. To confirm this for yourself, you \
+can copy the following expression into Mathematica:\>\"", ",", 
+        "\"\<Text\>\""}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"Cell", "[", 
+       RowBox[{
+        RowBox[{"TextData", "[", 
+         RowBox[{"{", 
+          RowBox[{"Cell", "[", 
+           RowBox[{
+           "BoxData", "[", "\"\<Integrate[Sin[x]*Sin[2*x],{x,0,2*Pi}]\>\"", 
+            "]"}], "]"}], 
+          RowBox[{"(*", 
+           RowBox[{",", "\"\< = \>\"", ",", 
+            RowBox[{"BoxData", "[", 
+             RowBox[{"Integrate", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Sin", "[", "x", "]"}], "*", 
+                RowBox[{"Sin", "[", 
+                 RowBox[{"2", "*", "x"}], "]"}]}], ",", 
+               RowBox[{"{", 
+                RowBox[{"x", ",", "0", ",", 
+                 RowBox[{"2", "*", "Pi"}]}], "}"}]}], "]"}], "]"}]}], "*)"}], 
+          "}"}], "]"}], ",", "\"\<Text\>\""}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"TextCell", "[", 
+       RowBox[{
+       "\"\<and see that you get 0, that these functions are orthogonal. A \
+more helpful way to visually assure ourselves of the orthogonality of two \
+functions would be to graph their product - the integrand of equation (1.16). \
+Trying this out for two sine functions gives us the following result, where a \
+is our arbitrary starting point, \[Lambda] is our period, and m and n are the \
+orders for the two sine functions. The opaque blue curve represents the \
+integrand of equation (1.16), while the red and green curves represent the \
+individual sine functions, which have been initialized to the previously \
+discussed situation with sin(x) and sin(2x). The result of equation (1.16) is \
+also included above the graph.\>\"", ",", "\"\<Text\>\""}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"ExpressionCell", "[", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{"graph1", "=", 
+          RowBox[{"Manipulate", "[", 
+           RowBox[{
+            RowBox[{"Plot", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Sin", "[", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"2", "*", "m", "*", "Pi", "*", "x"}], ")"}], "/", 
+                 RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], "*", 
+               RowBox[{"Sin", "[", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"2", "*", "n", "*", "Pi", "*", "x"}], ")"}], "/", 
+                 RowBox[{"(", "\[Lambda]", ")"}]}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"x", ",", "a", ",", 
+                RowBox[{"a", "+", 
+                 RowBox[{"(", "\[Lambda]", ")"}]}]}], "}"}], ",", 
+              RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+              RowBox[{"PlotLabel", "\[Rule]", 
+               RowBox[{"Style", "[", 
+                RowBox[{"Framed", "[", 
+                 RowBox[{"Integrate", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"Sin", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "*", "m", "*", "\[Pi]", "*", "x"}], ")"}], 
+                    "/", 
+                    RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], "*", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "*", "n", "*", "\[Pi]", "*", "x"}], ")"}], 
+                    "/", 
+                    RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], "*", 
+                    RowBox[{"KroneckerDelta", "[", 
+                    RowBox[{"m", ",", "n"}], "]"}]}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"x", ",", "a", ",", 
+                    RowBox[{"a", "+", 
+                    RowBox[{"(", "\[Lambda]", ")"}]}]}], "}"}]}], "]"}], 
+                 "]"}], "]"}]}], ",", 
+              RowBox[{"PlotStyle", "\[Rule]", "Blue"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"m", ",", "1"}], "}"}], ",", "0", ",", "10", ",", 
+              "1"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"n", ",", "2"}], "}"}], ",", "0", ",", "10", ",", 
+              "1"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"a", ",", "0"}], "}"}], ",", 
+              RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"\[Lambda]", ",", 
+                RowBox[{"2", "*", "Pi"}]}], "}"}], ",", 
+              RowBox[{"Pi", "/", "2"}], ",", 
+              RowBox[{"2", "*", "Pi"}], ",", 
+              RowBox[{"Pi", "/", "4"}]}], "}"}], ",", 
+            RowBox[{"FrameLabel", "\[Rule]", "\"\<Sine and Sine\>\""}]}], 
+           "]"}]}], ";"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"graph1", "=", 
+          RowBox[{"Manipulate", "[", 
+           RowBox[{
+            RowBox[{"Plot", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Sin", "[", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"2", "*", "m", "*", "Pi", "*", "x"}], ")"}], "/", 
+                   RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], "*", 
+                 RowBox[{"Sin", "[", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"2", "*", "n", "*", "Pi", "*", "x"}], ")"}], "/", 
+                   RowBox[{"(", "\[Lambda]", ")"}]}], "]"}]}], ",", 
+                RowBox[{"Sin", "[", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"2", "*", "m", "*", "Pi", "*", "x"}], ")"}], "/", 
+                  RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], ",", 
+                RowBox[{"Sin", "[", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"2", "*", "n", "*", "Pi", "*", "x"}], ")"}], "/", 
+                  RowBox[{"(", "\[Lambda]", ")"}]}], "]"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"x", ",", "a", ",", 
+                RowBox[{"a", "+", 
+                 RowBox[{"(", "\[Lambda]", ")"}]}]}], "}"}], ",", 
+              RowBox[{"Filling", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"1", "->", "Axis"}], "}"}]}], ",", 
+              RowBox[{"PlotLabel", "\[Rule]", 
+               RowBox[{"Style", "[", 
+                RowBox[{"Framed", "[", 
+                 RowBox[{"Integrate", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"Sin", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "*", "m", "*", "\[Pi]", "*", "x"}], ")"}], 
+                    "/", 
+                    RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], "*", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "*", "n", "*", "\[Pi]", "*", "x"}], ")"}], 
+                    "/", 
+                    RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], "*", 
+                    RowBox[{"KroneckerDelta", "[", 
+                    RowBox[{"m", ",", "n"}], "]"}]}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"x", ",", "a", ",", 
+                    RowBox[{"a", "+", 
+                    RowBox[{"(", "\[Lambda]", ")"}]}]}], "}"}]}], "]"}], 
+                 "]"}], "]"}]}], ",", 
+              RowBox[{"PlotStyle", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"Blue", ",", 
+                 RowBox[{"Directive", "[", 
+                  RowBox[{"Red", ",", 
+                   RowBox[{"Opacity", "[", "0.2", "]"}]}], "]"}], ",", 
+                 RowBox[{"Directive", "[", 
+                  RowBox[{"Green", ",", 
+                   RowBox[{"Opacity", "[", "0.2", "]"}]}], "]"}]}], "}"}]}]}],
+              "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"m", ",", "1"}], "}"}], ",", "0", ",", "10", ",", 
+              "1"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"n", ",", "2"}], "}"}], ",", "0", ",", "10", ",", 
+              "1"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"a", ",", "0"}], "}"}], ",", 
+              RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"\[Lambda]", ",", 
+                RowBox[{"2", "*", "Pi"}]}], "}"}], ",", 
+              RowBox[{"Pi", "/", "2"}], ",", 
+              RowBox[{"2", "*", "Pi"}], ",", 
+              RowBox[{"Pi", "/", "4"}]}], "}"}], ",", 
+            RowBox[{"FrameLabel", "\[Rule]", "\"\<Sine and Sine\>\""}]}], 
+           "]"}]}], ";", "\[IndentingNewLine]", "graph1"}], ",", 
+        "\"\<Output\>\""}], "\[IndentingNewLine]", "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"TextCell", "[", 
+       RowBox[{
+       "\"\<Here we can clearly see that the area under the curve (the shaded \
+area) totals to zero when we expect the functions to be orthogonal, but that \
+it totals to some nonzero value when the functions are not orthogonal. Try \
+out adjusting the sliders to convince yourself of these conclusions. Let's \
+take a look next at the orthogonality of two cosine functions:\>\"", ",", 
+        "\"\<Text\>\""}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ExpressionCell", "[", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{"graph2", "=", 
+          RowBox[{"Manipulate", "[", 
+           RowBox[{
+            RowBox[{"Plot", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Cos", "[", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"2", "*", "m", "*", "Pi", "*", "x"}], ")"}], "/", 
+                 RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], "*", 
+               RowBox[{"Cos", "[", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"2", "*", "n", "*", "Pi", "*", "x"}], ")"}], "/", 
+                 RowBox[{"(", "\[Lambda]", ")"}]}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"x", ",", "a", ",", 
+                RowBox[{"a", "+", 
+                 RowBox[{"(", "\[Lambda]", ")"}]}]}], "}"}], ",", 
+              RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+              RowBox[{"PlotLabel", "\[Rule]", 
+               RowBox[{"Style", "[", 
+                RowBox[{"Framed", "[", 
+                 RowBox[{"Integrate", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"Cos", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "*", "m", "*", "\[Pi]", "*", "x"}], ")"}], 
+                    "/", 
+                    RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], "*", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "*", "n", "*", "\[Pi]", "*", "x"}], ")"}], 
+                    "/", 
+                    RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], "*", 
+                    RowBox[{"KroneckerDelta", "[", 
+                    RowBox[{"m", ",", "n"}], "]"}]}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"x", ",", "a", ",", 
+                    RowBox[{"a", "+", 
+                    RowBox[{"(", "\[Lambda]", ")"}]}]}], "}"}]}], "]"}], 
+                 "]"}], "]"}]}], ",", 
+              RowBox[{"PlotStyle", "\[Rule]", "Blue"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"m", ",", "0", ",", "10", ",", "1"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"n", ",", "0", ",", "10", ",", "1"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"a", ",", 
+              RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\[Lambda]", ",", 
+              RowBox[{"Pi", "/", "2"}], ",", 
+              RowBox[{"3", "*", 
+               RowBox[{"Pi", "/", "2"}]}], ",", 
+              RowBox[{"Pi", "/", "4"}]}], "}"}], ",", 
+            RowBox[{"FrameLabel", "\[Rule]", "\"\<Cosine and Cosine\>\""}]}], 
+           "]"}]}], ";"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"graph2", "=", 
+          RowBox[{"Manipulate", "[", 
+           RowBox[{
+            RowBox[{"Plot", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Cos", "[", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"2", "*", "m", "*", "Pi", "*", "x"}], ")"}], "/", 
+                   RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], "*", 
+                 RowBox[{"Cos", "[", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"2", "*", "n", "*", "Pi", "*", "x"}], ")"}], "/", 
+                   RowBox[{"(", "\[Lambda]", ")"}]}], "]"}]}], ",", 
+                RowBox[{"Cos", "[", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"2", "*", "m", "*", "Pi", "*", "x"}], ")"}], "/", 
+                  RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], ",", 
+                RowBox[{"Cos", "[", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"2", "*", "n", "*", "Pi", "*", "x"}], ")"}], "/", 
+                  RowBox[{"(", "\[Lambda]", ")"}]}], "]"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"x", ",", "a", ",", 
+                RowBox[{"a", "+", 
+                 RowBox[{"(", "\[Lambda]", ")"}]}]}], "}"}], ",", 
+              RowBox[{"Filling", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"1", "->", "Axis"}], "}"}]}], ",", 
+              RowBox[{"PlotLabel", "\[Rule]", 
+               RowBox[{"Style", "[", 
+                RowBox[{"Framed", "[", 
+                 RowBox[{"Integrate", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"Cos", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "*", "m", "*", "\[Pi]", "*", "x"}], ")"}], 
+                    "/", 
+                    RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], "*", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "*", "n", "*", "\[Pi]", "*", "x"}], ")"}], 
+                    "/", 
+                    RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], "*", 
+                    RowBox[{"KroneckerDelta", "[", 
+                    RowBox[{"m", ",", "n"}], "]"}]}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"x", ",", "a", ",", 
+                    RowBox[{"a", "+", 
+                    RowBox[{"(", "\[Lambda]", ")"}]}]}], "}"}]}], "]"}], 
+                 "]"}], "]"}]}], ",", 
+              RowBox[{"PlotStyle", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"Blue", ",", 
+                 RowBox[{"Directive", "[", 
+                  RowBox[{"Red", ",", 
+                   RowBox[{"Opacity", "[", "0.2", "]"}]}], "]"}], ",", 
+                 RowBox[{"Directive", "[", 
+                  RowBox[{"Green", ",", 
+                   RowBox[{"Opacity", "[", "0.2", "]"}]}], "]"}]}], "}"}]}]}],
+              "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"m", ",", "1"}], "}"}], ",", "0", ",", "10", ",", 
+              "1"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"n", ",", "2"}], "}"}], ",", "0", ",", "10", ",", 
+              "1"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"a", ",", "0"}], "}"}], ",", 
+              RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"\[Lambda]", ",", 
+                RowBox[{"2", "*", "Pi"}]}], "}"}], ",", 
+              RowBox[{"Pi", "/", "2"}], ",", 
+              RowBox[{"2", "*", "Pi"}], ",", 
+              RowBox[{"Pi", "/", "4"}]}], "}"}], ",", 
+            RowBox[{"FrameLabel", "\[Rule]", "\"\<Cosine and Cosine\>\""}]}], 
+           "]"}]}], ";", "\[IndentingNewLine]", "graph2"}], ",", 
+        "\"\<Output\>\""}], "\[IndentingNewLine]", "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"TextCell", "[", 
+       RowBox[{
+       "\"\<where the values and curves are all similarly defined and \
+initialized as before. Finally, for sine and cosine:\>\"", ",", 
+        "\"\<Text\>\""}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ExpressionCell", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"graphTF3", "=", 
+          RowBox[{"Manipulate", "[", 
+           RowBox[{
+            RowBox[{"Plot", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Sin", "[", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"2", "*", "m", "*", "Pi", "*", "x"}], ")"}], "/", 
+                   RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], "*", 
+                 RowBox[{"Cos", "[", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"2", "*", "n", "*", "Pi", "*", "x"}], ")"}], "/", 
+                   RowBox[{"(", "\[Lambda]", ")"}]}], "]"}]}], ",", 
+                RowBox[{"Sin", "[", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"2", "*", "m", "*", "Pi", "*", "x"}], ")"}], "/", 
+                  RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], ",", 
+                RowBox[{"Cos", "[", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"2", "*", "n", "*", "Pi", "*", "x"}], ")"}], "/", 
+                  RowBox[{"(", "\[Lambda]", ")"}]}], "]"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"x", ",", "a", ",", 
+                RowBox[{"a", "+", 
+                 RowBox[{"(", "\[Lambda]", ")"}]}]}], "}"}], ",", 
+              RowBox[{"Filling", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"1", "->", "Axis"}], "}"}]}], ",", 
+              RowBox[{"PlotLabel", "\[Rule]", 
+               RowBox[{"Style", "[", 
+                RowBox[{"Framed", "[", 
+                 RowBox[{"Integrate", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"Sin", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "*", "m", "*", "\[Pi]", "*", "x"}], ")"}], 
+                    "/", 
+                    RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], "*", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "*", "n", "*", "\[Pi]", "*", "x"}], ")"}], 
+                    "/", 
+                    RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], "*", 
+                    RowBox[{"KroneckerDelta", "[", 
+                    RowBox[{"m", ",", "n"}], "]"}]}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"x", ",", "a", ",", 
+                    RowBox[{"a", "+", 
+                    RowBox[{"(", "\[Lambda]", ")"}]}]}], "}"}]}], "]"}], 
+                 "]"}], "]"}]}], ",", 
+              RowBox[{"PlotStyle", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"Blue", ",", 
+                 RowBox[{"Directive", "[", 
+                  RowBox[{"Red", ",", 
+                   RowBox[{"Opacity", "[", "0.2", "]"}]}], "]"}], ",", 
+                 RowBox[{"Directive", "[", 
+                  RowBox[{"Green", ",", 
+                   RowBox[{"Opacity", "[", "0.2", "]"}]}], "]"}]}], "}"}]}]}],
+              "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"m", ",", "1"}], "}"}], ",", "0", ",", "10", ",", 
+              "1"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"n", ",", "2"}], "}"}], ",", "0", ",", "10", ",", 
+              "1"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"a", ",", "0"}], "}"}], ",", 
+              RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"\[Lambda]", ",", 
+                RowBox[{"2", "*", "Pi"}]}], "}"}], ",", 
+              RowBox[{"Pi", "/", "2"}], ",", 
+              RowBox[{"2", "*", "Pi"}], ",", 
+              RowBox[{"Pi", "/", "4"}]}], "}"}], ",", 
+            RowBox[{"FrameLabel", "\[Rule]", "\"\<Sine and Cosine\>\""}]}], 
+           "]"}]}], ";", "\[IndentingNewLine]", "graphTF3"}], ",", 
+        "\"\<Output\>\""}], "\[IndentingNewLine]", "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"TextCell", "[", 
+       RowBox[{
+       "\"\<where we find that sine and cosine are always orthogonal over the \
+same period. Understanding these conclusions will be incredibly important as \
+we move forwards to more complicated, less familiar special functions, such \
+as Bessel or Legendre functions.\>\"", ",", "\"\<Text\>\""}], "]"}]}], 
+     "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"WindowTitle", "\[Rule]", "\"\<TriggOrthogonality\>\""}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"NotebookSave", "[", "TriggOrthogonality", "]"}], 
+   "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.8652781044337034`*^9, 3.865278159695758*^9}, {
+   3.865278194528105*^9, 3.865278195909355*^9}, {3.865278525970813*^9, 
+   3.8652785403645587`*^9}, {3.865278571849575*^9, 3.8652785845950036`*^9}, {
+   3.8652861606945148`*^9, 3.8652861625686483`*^9}, {3.8673385919440713`*^9, 
+   3.8673386440841064`*^9}, {3.8673395171441927`*^9, 
+   3.8673395685880895`*^9}, {3.8673396100963316`*^9, 
+   3.8673396578773146`*^9}, {3.8673396910328054`*^9, 
+   3.8673396989526253`*^9}, {3.867340091514462*^9, 3.867340098705983*^9}, {
+   3.867409335801504*^9, 3.8674093378082294`*^9}, {3.867409392454914*^9, 
+   3.867409427768607*^9}, {3.867410080318123*^9, 3.867410091092639*^9}, 
+   3.8674101943614244`*^9, {3.8675109318840413`*^9, 3.8675109939556465`*^9}, {
+   3.867511025160281*^9, 3.8675110268715963`*^9}, {3.867511062298518*^9, 
+   3.8675111016881914`*^9}, {3.8675112780205755`*^9, 3.867511319065588*^9}, {
+   3.86751136922353*^9, 3.86751137545459*^9}, {3.867511421213497*^9, 
+   3.867511425405615*^9}, {3.8675114610093656`*^9, 3.867511462248532*^9}, {
+   3.8675114986303177`*^9, 3.867511558116973*^9}, {3.867511601955902*^9, 
+   3.8675116150988054`*^9}, {3.867513161511799*^9, 3.8675135089934044`*^9}, {
+   3.867513549862294*^9, 3.867513554982314*^9}, {3.8675136159648485`*^9, 
+   3.8675136890701294`*^9}, {3.867513725163352*^9, 3.8675137749464045`*^9}, {
+   3.867513805275494*^9, 3.867513850689884*^9}, {3.8675153060741076`*^9, 
+   3.867515311010181*^9}, {3.8675153441346874`*^9, 3.867515462067459*^9}, {
+   3.867515519186553*^9, 3.8675156028202677`*^9}, {3.867515640171844*^9, 
+   3.8675156417644544`*^9}, {3.867515689697571*^9, 3.8675157656365385`*^9}, {
+   3.867515822155235*^9, 3.867515861328162*^9}, {3.8675159096529922`*^9, 
+   3.867516005304963*^9}, {3.8675160513579464`*^9, 3.867516178106983*^9}, {
+   3.870376074812564*^9, 3.870376088270331*^9}, {3.8704466382649717`*^9, 
+   3.8704466494270563`*^9}},ExpressionUUID->"cb401481-2e8f-4dcd-98ed-\
+02d192215d46"],
+
+Cell[BoxData[
+ TemplateBox[{
+   FrontEndObject[
+    LinkObject["eaa2w_shm", 3, 1]], 19, 
+   "FrontEndObject[LinkObject[\"eaa2w_shm\", 3, 1]]", "19", 
+   "\"TriggOrthogonality\""},
+  "NotebookObjectUnsaved"]], "Output",
+ CellChangeTimes->{{3.867511537853821*^9, 3.867511559759856*^9}, {
+   3.867511606650633*^9, 3.867511616538229*^9}, 3.867513099414671*^9, 
+   3.867513510260826*^9, 3.867513701241491*^9, 3.8675138574817743`*^9, 
+   3.867515464547233*^9, {3.8675156189405365`*^9, 3.867515647553095*^9}, 
+   3.867515772273945*^9, 3.8675158652391567`*^9, 3.867515963768574*^9, {
+   3.8675159950067153`*^9, 3.867516006430687*^9}, {3.867516098164736*^9, 
+   3.867516126821322*^9}, 3.867516161601856*^9, 3.870378388683899*^9, 
+   3.8704466419029655`*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"59bf98d9-0744-4382-9adc-f7ced68e1bc8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"testing", "=", 
+  RowBox[{"CreateDocument", "[", 
+   RowBox[{
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{"ExpressionCell", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"graph1", "=", 
+         RowBox[{"Manipulate", "[", 
+          RowBox[{
+           RowBox[{"Plot", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Sin", "[", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"2", "*", "m", "*", "Pi", "*", "x"}], ")"}], "/", 
+                  RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], "*", 
+                RowBox[{"Sin", "[", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"2", "*", "n", "*", "Pi", "*", "x"}], ")"}], "/", 
+                  RowBox[{"(", "\[Lambda]", ")"}]}], "]"}]}], ",", 
+               RowBox[{"Sin", "[", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"2", "*", "m", "*", "Pi", "*", "x"}], ")"}], "/", 
+                 RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], ",", 
+               RowBox[{"Sin", "[", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"2", "*", "n", "*", "Pi", "*", "x"}], ")"}], "/", 
+                 RowBox[{"(", "\[Lambda]", ")"}]}], "]"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", "a", ",", 
+               RowBox[{"a", "+", 
+                RowBox[{"(", "\[Lambda]", ")"}]}]}], "}"}], ",", 
+             RowBox[{"Filling", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"1", "->", "Axis"}], "}"}]}], ",", 
+             RowBox[{"PlotLabel", "\[Rule]", 
+              RowBox[{"Style", "[", 
+               RowBox[{"Framed", "[", 
+                RowBox[{"Integrate", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Sin", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "*", "m", "*", "\[Pi]", "*", "x"}], ")"}], 
+                    "/", 
+                    RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], "*", 
+                   RowBox[{"Sin", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "*", "n", "*", "\[Pi]", "*", "x"}], ")"}], 
+                    "/", 
+                    RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], "*", 
+                   RowBox[{"KroneckerDelta", "[", 
+                    RowBox[{"m", ",", "n"}], "]"}]}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"x", ",", "a", ",", 
+                    RowBox[{"a", "+", 
+                    RowBox[{"(", "\[Lambda]", ")"}]}]}], "}"}]}], "]"}], 
+                "]"}], "]"}]}], ",", 
+             RowBox[{"PlotStyle", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"Blue", ",", 
+                RowBox[{"Directive", "[", 
+                 RowBox[{"Red", ",", 
+                  RowBox[{"Opacity", "[", "0.2", "]"}]}], "]"}], ",", 
+                RowBox[{"Directive", "[", 
+                 RowBox[{"Green", ",", 
+                  RowBox[{"Opacity", "[", "0.2", "]"}]}], "]"}]}], "}"}]}]}], 
+            "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"m", ",", "1"}], "}"}], ",", "0", ",", "10", ",", "1"}],
+             "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"n", ",", "2"}], "}"}], ",", "0", ",", "10", ",", "1"}],
+             "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"a", ",", "0"}], "}"}], ",", 
+             RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"\[Lambda]", ",", 
+               RowBox[{"2", "*", "Pi"}]}], "}"}], ",", 
+             RowBox[{"Pi", "/", "2"}], ",", 
+             RowBox[{"2", "*", "Pi"}], ",", 
+             RowBox[{"Pi", "/", "4"}]}], "}"}], ",", 
+           RowBox[{"FrameLabel", "\[Rule]", "\"\<Sine and Sine\>\""}]}], 
+          "]"}]}], ";", "\[IndentingNewLine]", "graph1"}], ",", 
+       RowBox[{"\"\<Output\>\"", ";"}]}], "\[IndentingNewLine]", "]"}], 
+     RowBox[{"(*", 
+      RowBox[{",", "\[IndentingNewLine]", 
+       RowBox[{"ExpressionCell", "[", 
+        RowBox[{
+         RowBox[{"HoldForm", "[", 
+          RowBox[{"Integrate", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"f", "[", "x", "]"}], "*", 
+             RowBox[{"g", "[", "x", "]"}], "*", 
+             RowBox[{"w", "[", "x", "]"}]}], ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", "a", ",", "b"}], "}"}]}], "]"}], "]"}], ",", 
+         "\"\<Output\>\""}], "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"Cell", "[", 
+        RowBox[{"\"\<(f,g)\>\"", ",", "\"\<Text\>\""}], "]"}]}], "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Cell", "[", 
+        RowBox[{
+         RowBox[{"TextData", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Cell", "[", 
+             RowBox[{
+             "BoxData", "[", "\"\<Integrate[Sin[x]*Sin[2*x],{x,0,2*Pi}]\>\"", 
+              "]"}], "]"}], ",", "\"\< = \>\"", ",", 
+            RowBox[{"BoxData", "[", 
+             RowBox[{"Integrate", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Sin", "[", "x", "]"}], "*", 
+                RowBox[{"Sin", "[", 
+                 RowBox[{"2", "*", "x"}], "]"}]}], ",", 
+               RowBox[{"{", 
+                RowBox[{"x", ",", "0", ",", 
+                 RowBox[{"2", "*", "Pi"}]}], "}"}]}], "]"}], "]"}]}], "}"}], 
+          "]"}], ",", "\"\<Text\>\""}], "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"Cell", "[", 
+        RowBox[{
+         RowBox[{"TextData", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+            "Cell", "[", "\"\<Integrate[Sin[x]*Sin[2*x],{x,0,2*Pi}]\>\"", 
+             "]"}], ",", "\"\< = \>\"", ",", 
+            RowBox[{"BoxData", "[", 
+             RowBox[{"Integrate", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Sin", "[", "x", "]"}], "*", 
+                RowBox[{"Sin", "[", 
+                 RowBox[{"2", "*", "x"}], "]"}]}], ",", 
+               RowBox[{"{", 
+                RowBox[{"x", ",", "0", ",", 
+                 RowBox[{"2", "*", "Pi"}]}], "}"}]}], "]"}], "]"}]}], "}"}], 
+          "]"}], ",", "\"\<Text\>\""}], "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"HoldForm", "[", 
+        RowBox[{"Integrate", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Sin", "[", "x", "]"}], "*", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"2", "*", "x"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"x", ",", "0", ",", 
+            RowBox[{"2", "*", "Pi"}]}], "}"}]}], "]"}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"ExpressionCell", "[", 
+        RowBox[{"HoldForm", "[", 
+         RowBox[{"Integrate", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Sin", "[", "x", "]"}], "*", 
+            RowBox[{"Sin", "[", 
+             RowBox[{"2", "*", "x"}], "]"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", "0", ",", 
+             RowBox[{"2", "*", "Pi"}]}], "}"}]}], "]"}], "]"}], "]"}], ",", 
+       RowBox[{"(*", 
+        RowBox[{"\"\<=\>\"", ",", 
+         RowBox[{"BoxData", "[", 
+          RowBox[{"Integrate", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Sin", "[", "x", "]"}], "*", 
+             RowBox[{"Sin", "[", 
+              RowBox[{"2", "*", "x"}], "]"}]}], ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", "0", ",", 
+              RowBox[{"2", "*", "Pi"}]}], "}"}]}], "]"}], "]"}], ","}], 
+        "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"ExpressionCell", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"expr", "=", 
+           RowBox[{"HoldForm", "[", 
+            RowBox[{"Integrate", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Sin", "[", "x", "]"}], "*", 
+               RowBox[{"Sin", "[", 
+                RowBox[{"2", "*", "x"}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"x", ",", "0", ",", 
+                RowBox[{"2", "*", "Pi"}]}], "}"}]}], "]"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Cell", "[", 
+           RowBox[{"expr", ",", "\"\<Text\>\""}], "]"}]}], ",", 
+         "\[IndentingNewLine]", "expr", ",", "\"\<Output\>\""}], 
+        "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"ExpressionCell", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"graph1", "=", 
+           RowBox[{"Manipulate", "[", 
+            RowBox[{
+             RowBox[{"Plot", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Sin", "[", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"2", "*", "m", "*", "Pi", "*", "x"}], ")"}], "/", 
+                  RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], "*", 
+                RowBox[{"Sin", "[", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"2", "*", "n", "*", "Pi", "*", "x"}], ")"}], "/", 
+                  RowBox[{"(", "\[Lambda]", ")"}]}], "]"}]}], ",", 
+               RowBox[{"{", 
+                RowBox[{"x", ",", "a", ",", 
+                 RowBox[{"a", "+", 
+                  RowBox[{"(", "\[Lambda]", ")"}]}]}], "}"}], ",", 
+               RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+               RowBox[{"PlotLabel", "\[Rule]", 
+                RowBox[{"Style", "[", 
+                 RowBox[{"Integrate", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"Sin", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "*", "m", "*", "\[Pi]", "*", "x"}], ")"}], 
+                    "/", 
+                    RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], "*", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "*", "n", "*", "\[Pi]", "*", "x"}], ")"}], 
+                    "/", 
+                    RowBox[{"(", "\[Lambda]", ")"}]}], "]"}], "*", 
+                    RowBox[{"KroneckerDelta", "[", 
+                    RowBox[{"m", ",", "n"}], "]"}]}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"x", ",", "a", ",", 
+                    RowBox[{"a", "+", 
+                    RowBox[{"(", "\[Lambda]", ")"}]}]}], "}"}]}], "]"}], 
+                 "]"}]}], ",", 
+               RowBox[{"PlotStyle", "\[Rule]", "Blue"}]}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"m", ",", "1"}], "}"}], ",", "0", ",", "10", ",", 
+               "1"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"n", ",", "2"}], "}"}], ",", "0", ",", "10", ",", 
+               "1"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"a", ",", "0"}], "}"}], ",", 
+               RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"\[Lambda]", ",", 
+                 RowBox[{"2", "*", "Pi"}]}], "}"}], ",", 
+               RowBox[{"Pi", "/", "2"}], ",", 
+               RowBox[{"2", "*", "Pi"}], ",", 
+               RowBox[{"Pi", "/", "4"}]}], "}"}], ",", 
+             RowBox[{"FrameLabel", "\[Rule]", "\"\<Sine and Sine\>\""}]}], 
+            "]"}]}], ";", "\[IndentingNewLine]", "graph1"}], ",", 
+         "\"\<Output\>\""}], "\[IndentingNewLine]", "]"}]}], "*)"}], 
+     "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"WindowTitle", "\[Rule]", "\"\<testing\>\""}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"NotebookSave", "[", "testing", "]"}], "*)"}]}]}], "Input",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQBmIQzSX5NX/jhTeOMianSkB0C+e7VhCd+rK0F0Qfuv1w
+Iojm2lY4C0Q/OLd9EYhedrR1HYhe51i6CUR/eM15GERv2OtzCUTvEfd6BKIZ
+Waa9BdHzHgp+BdEpMaE/QfQzOe9fILp0axnrJiD9beccLhBdwVGqAqLfvwlX
+BdFSZ42mgOhnk3qng2jmSdJzQPSZp9fmgmib4JBFIHrfmpwlIPrY9afrQfTx
+LcKHQPSWOVuOg+gNmRdPg+i2QMP7IDqAf997EH3ksf9XEJ2lJv8NRPOqtfwC
+0TEbGv6B6HipbLXNQNo7wdMQRAMAKh25TA==
+  "],
+ CellLabel->"In[62]:=",ExpressionUUID->"1e85da25-7474-40ab-be7c-5c54283f24f9"],
+
+Cell[BoxData[
+ TemplateBox[{
+   FrontEndObject[
+    LinkObject["rur5c_shm", 3, 1]], 88, 
+   "FrontEndObject[LinkObject[\"rur5c_shm\", 3, 1]]", "88", "\"testing\""},
+  "NotebookObjectUnsaved"]], "Output",
+ CellChangeTimes->{{3.8675152488336725`*^9, 3.8675152769091063`*^9}},
+ CellLabel->"Out[62]=",ExpressionUUID->"e646d982-7391-4807-8f9f-baf2652d0ebc"]
+}, Open  ]]
+},
+WindowSize->{798.75, 664.5},
+WindowMargins->{{Automatic, -17.25}, {Automatic, 21}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"7cbd11ec-1490-4e70-9fb7-cc10d7f20945"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 27765, 606, 2072, "Input",ExpressionUUID->"cb401481-2e8f-4dcd-98ed-02d192215d46"],
+Cell[28348, 630, 826, 15, 46, "Output",ExpressionUUID->"59bf98d9-0744-4382-9adc-f7ced68e1bc8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29211, 650, 12717, 305, 722, "Input",ExpressionUUID->"1e85da25-7474-40ab-be7c-5c54283f24f9"],
+Cell[41931, 957, 352, 7, 46, "Output",ExpressionUUID->"e646d982-7391-4807-8f9f-baf2652d0ebc"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

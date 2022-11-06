@@ -1,0 +1,853 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     36103,        843]
+NotebookOptionsPosition[     35613,        826]
+NotebookOutlinePosition[     36018,        842]
+CellTagsIndexPosition[     35975,        839]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"TriggFourierSeries", "=", 
+  RowBox[{"CreateDocument", "[", 
+   RowBox[{
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"TextCell", "[", 
+       RowBox[{
+       "\"\<Fourier Analysis with ''Trigg'' Functions - The Fourier \
+Series\>\"", ",", "\"\<Title\>\"", ",", 
+        RowBox[{"FontColor", "\[Rule]", "Black"}]}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"TextCell", "[", "\[IndentingNewLine]", 
+       RowBox[{
+       "\"\<In the ''Trigg's Equation'' chapter of the guide, we discussed \
+how sine and cosine can be used as a basis to create a series - the Fourier \
+Series, introduced in equation (1.24). This equation, restated below:\>\"", 
+        ",", "\"\<Text\>\""}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ExpressionCell", "[", 
+       RowBox[{
+        RowBox[{"HoldForm", "[", 
+         RowBox[{
+          RowBox[{"f", "[", "x", "]"}], "=", 
+          RowBox[{
+           RowBox[{"a_", "0"}], "+", 
+           RowBox[{"Sum", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"a_n", "*", 
+               RowBox[{"Cos", "[", 
+                RowBox[{"k_n", "*", "x"}], "]"}]}], "+", 
+              RowBox[{"b_n", "*", 
+               RowBox[{"Sin", "[", 
+                RowBox[{"k_n", "*", "x"}], "]"}]}]}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"n", "=", "1"}], ",", "Infinity"}], "}"}]}], "]"}]}]}],
+          "]"}], ",", "\"\<Output\>\""}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"TextCell", "[", "\[IndentingNewLine]", 
+       RowBox[{
+       "\"\<makes use of the orthogonality of sine and cosine to 'pick out' \
+individual terms and find their coefficients. This process involving the \
+inner product should feel more intuitive at this point, as we have previously \
+explored it at length in the Trigg Orthogonality notebook. Let's take a look \
+at a few examples of using the Fourier Series.\>\"", ",", "\"\<Text\>\""}], 
+       "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"TextCell", "[", "\[IndentingNewLine]", 
+       RowBox[{
+       "\"\<First, we'll try a simple function that you are undoubtedly \
+familiar with, the parabola. Let's set\>\"", ",", "\"\<Text\>\""}], "]"}], 
+      ",", "\[IndentingNewLine]", 
+      RowBox[{"ExpressionCell", "[", 
+       RowBox[{
+        RowBox[{"HoldForm", "[", 
+         RowBox[{
+          RowBox[{"f", "[", "x", "]"}], "=", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"x", "-", "5"}], ")"}], "^", "2"}]}], "]"}], ",", 
+        "\"\<Output\>\""}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"TextCell", "[", "\[IndentingNewLine]", 
+       RowBox[{
+       "\"\<for 0<x<10 and find the coefficients for the Fourier Series. \
+Using the orthogonality of sine and cosine, our coefficients will be:\>\"", 
+        ",", "\"\<Text\>\""}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ExpressionCell", "[", 
+       RowBox[{
+        RowBox[{"HoldForm", "[", 
+         RowBox[{
+          RowBox[{"a_", "0"}], "=", 
+          RowBox[{
+           RowBox[{"1", "/", "\[Lambda]"}], "*", 
+           RowBox[{"Integrate", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"x", "-", "5"}], ")"}], "^", "2"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", 
+               RowBox[{"x_", "0"}], ",", 
+               RowBox[{
+                RowBox[{"x_", "0"}], "+", "\[Lambda]"}]}], "}"}]}], "]"}]}]}],
+          "]"}], ",", "\"\<Output\>\""}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ExpressionCell", "[", 
+       RowBox[{
+        RowBox[{"HoldForm", "[", 
+         RowBox[{"a_n", "=", 
+          RowBox[{
+           RowBox[{"2", "/", "\[Lambda]"}], "*", 
+           RowBox[{"Integrate", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"x", "-", "5"}], ")"}], "^", "2"}], "*", 
+              RowBox[{"Cos", "[", 
+               RowBox[{"k_n", "*", "x"}], "]"}]}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", 
+               RowBox[{"x_", "0"}], ",", 
+               RowBox[{
+                RowBox[{"x_", "0"}], "+", "\[Lambda]"}]}], "}"}]}], "]"}]}]}],
+          "]"}], ",", "\"\<Output\>\""}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ExpressionCell", "[", 
+       RowBox[{
+        RowBox[{"HoldForm", "[", 
+         RowBox[{"b_n", "=", 
+          RowBox[{
+           RowBox[{"2", "/", "\[Lambda]"}], "*", 
+           RowBox[{"Integrate", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"x", "-", "5"}], ")"}], "^", "2"}], "*", 
+              RowBox[{"Sin", "[", 
+               RowBox[{"k_n", "*", "x"}], "]"}]}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", 
+               RowBox[{"x_", "0"}], ",", 
+               RowBox[{
+                RowBox[{"x_", "0"}], "+", "\[Lambda]"}]}], "}"}]}], "]"}]}]}],
+          "]"}], ",", "\"\<Output\>\""}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"TextCell", "[", "\[IndentingNewLine]", 
+       RowBox[{
+       "\"\<Evaluating these expressions, and plugging them into equation \
+(1.24) gives us the Fourier Series for our parabola. In the figure, the \
+dotted red curve is our function f(x), while the blue curve is our Fourier \
+Series. Using the slider to increase n, you will see that adding in more \
+terms makes our approximation more accurate.\>\"", ",", "\"\<Text\>\""}], 
+       "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ExpressionCell", "[", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"f", 
+         RowBox[{"(", "x", ")"}]}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"fxtop", " ", "=", " ", 
+          RowBox[{"Plot", "[", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"x", "-", "5"}], ")"}], "^", "2"}], ")"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", "0", ",", "10"}], "}"}], ",", 
+            RowBox[{"PlotStyle", " ", "->", " ", 
+             RowBox[{"{", 
+              RowBox[{"Red", ",", "Dashed", ",", "Thick"}], "}"}]}]}], 
+           "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"(*", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+           "Calculations", " ", "for", " ", "the", " ", "coefficients"}], 
+           "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"(*", "a0", "*)"}], 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"1", "/", "10"}], ")"}], 
+            RowBox[{"Integrate", "[", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"x", "-", "5"}], ")"}], "^", "2"}], ")"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"x", ",", "0", ",", "10"}], "}"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"(*", "an", "*)"}], 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"2", "/", "10"}], ")"}], 
+            RowBox[{"Integrate", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"x", "-", "5"}], ")"}], "^", "2"}], ")"}], "*", 
+               RowBox[{"Cos", "[", 
+                RowBox[{"2", "*", "i", "*", "Pi", "*", 
+                 RowBox[{"x", "/", "10"}]}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"x", ",", "0", ",", "10"}], "}"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"(*", "bn", "*)"}], 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"2", "/", "10"}], ")"}], 
+            RowBox[{"Integrate", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"x", "-", "5"}], ")"}], "^", "2"}], ")"}], "*", 
+               RowBox[{"Sin", "[", 
+                RowBox[{"2", "*", "i", "*", "Pi", "*", 
+                 RowBox[{"x", "/", "10"}]}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"x", ",", "0", ",", "10"}], "}"}]}], "]"}]}], ";"}], 
+          "\[IndentingNewLine]", "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"Manipulate", "[", 
+          RowBox[{
+           RowBox[{"Show", "[", 
+            RowBox[{
+             RowBox[{"Plot", "[", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"x", "-", "5"}], ")"}], "^", "2"}], ")"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"x", ",", "0", ",", "10"}], "}"}], ",", 
+               RowBox[{"PlotStyle", " ", "->", " ", 
+                RowBox[{"{", 
+                 RowBox[{"Red", ",", "Dashed", ",", "Thick"}], "}"}]}]}], 
+              "]"}], ",", 
+             RowBox[{"Plot", "[", 
+              RowBox[{
+               RowBox[{
+                FractionBox["25", "3"], "+", 
+                RowBox[{"Sum", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"(", 
+                    FractionBox[
+                    RowBox[{"25", " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"4", " ", "i", " ", "\[Pi]", " ", 
+                    SuperscriptBox[
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"i", " ", "\[Pi]"}], "]"}], "2"]}], "+", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", "2"}], "+", 
+                    RowBox[{
+                    SuperscriptBox["i", "2"], " ", 
+                    SuperscriptBox["\[Pi]", "2"]}]}], ")"}], " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"2", " ", "i", " ", "\[Pi]"}], "]"}]}]}], ")"}]}], 
+                    RowBox[{
+                    SuperscriptBox["i", "3"], " ", 
+                    SuperscriptBox["\[Pi]", "3"]}]], ")"}], "*", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"2", "*", "i", "*", "Pi", "*", 
+                    RowBox[{"x", "/", "10"}]}], "]"}]}], "+", 
+                   RowBox[{
+                    RowBox[{"(", 
+                    FractionBox[
+                    RowBox[{"50", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"i", " ", "\[Pi]"}], "]"}], " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"2", " ", "i", " ", "\[Pi]", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"i", " ", "\[Pi]"}], "]"}]}], "+", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", "2"}], "+", 
+                    RowBox[{
+                    SuperscriptBox["i", "2"], " ", 
+                    SuperscriptBox["\[Pi]", "2"]}]}], ")"}], " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"i", " ", "\[Pi]"}], "]"}]}]}], ")"}]}], 
+                    RowBox[{
+                    SuperscriptBox["i", "3"], " ", 
+                    SuperscriptBox["\[Pi]", "3"]}]], ")"}], "*", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"2", "*", "i", "*", "Pi", "*", 
+                    RowBox[{"x", "/", "10"}]}], "]"}]}]}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"i", ",", "n"}], "}"}]}], "]"}]}], ",", 
+               RowBox[{"{", 
+                RowBox[{"x", ",", "0", ",", "10"}], "}"}], ",", 
+               RowBox[{"PlotPoints", "\[Rule]", 
+                RowBox[{"ControlActive", "[", 
+                 RowBox[{"30", ",", "150"}], "]"}]}]}], "]"}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"n", ",", "1", ",", "50", ",", "1"}], "}"}], ",", 
+           RowBox[{"FrameLabel", "\[Rule]", "\"\<For a parabola\>\""}]}], 
+          "]"}]}], "\[IndentingNewLine]", ",", "\"\<Output\>\""}], "]"}], ",",
+       "\[IndentingNewLine]", 
+      RowBox[{"TextCell", "[", "\[IndentingNewLine]", 
+       RowBox[{
+       "\"\<Although we can certainly continue using the Fourier Series to \
+represent some arbitrary simple function, let us instead turn our attention \
+to a more useful and interesting application: creating different waves. The \
+periodic nature of sine and cosine make them especially useful for creating \
+other periodic waveforms, such as a square or sawtooth wave. Starting with \
+the square wave, let's use the process outlined previously to find the \
+coefficients, and create a figure.\>\"", ",", "\"\<Text\>\""}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"ExpressionCell", "[", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"f", 
+         RowBox[{"(", "x", ")"}]}], "*)"}], 
+       RowBox[{
+        RowBox[{
+         RowBox[{"fxsqtop", " ", "=", " ", 
+          RowBox[{"Plot", "[", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"HeavisideTheta", "[", 
+               RowBox[{"x", "-", "2.5"}], "]"}], "-", 
+              RowBox[{"HeavisideTheta", "[", 
+               RowBox[{"x", "-", "5"}], "]"}], "+", 
+              RowBox[{"HeavisideTheta", "[", 
+               RowBox[{"x", "-", "7.5"}], "]"}]}], ")"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", "0", ",", "10"}], "}"}], ",", 
+            RowBox[{"PlotStyle", " ", "->", " ", 
+             RowBox[{"{", 
+              RowBox[{"Red", ",", "Dashed", ",", "Thick"}], "}"}]}]}], 
+           "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"fxsqside1", " ", "=", " ", 
+          RowBox[{"ParametricPlot", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"2.5", ",", "t"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"t", ",", "0", ",", "1"}], "}"}], ",", 
+            RowBox[{"PlotStyle", " ", "->", " ", 
+             RowBox[{"{", 
+              RowBox[{"Red", ",", "Dashed", ",", "Thick"}], "}"}]}]}], 
+           "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"fxsqside2", " ", "=", " ", 
+          RowBox[{"ParametricPlot", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"5", ",", "t"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"t", ",", "0", ",", "1"}], "}"}], ",", 
+            RowBox[{"PlotStyle", " ", "->", " ", 
+             RowBox[{"{", 
+              RowBox[{"Red", ",", "Dashed", ",", "Thick"}], "}"}]}]}], 
+           "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"fxsqside3", " ", "=", " ", 
+          RowBox[{"ParametricPlot", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"7.5", ",", "t"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"t", ",", "0", ",", "1"}], "}"}], ",", 
+            RowBox[{"PlotStyle", " ", "->", " ", 
+             RowBox[{"{", 
+              RowBox[{"Red", ",", "Dashed", ",", "Thick"}], "}"}]}]}], 
+           "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"fxsqside4", " ", "=", " ", 
+          RowBox[{"ParametricPlot", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"10", ",", "t"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"t", ",", "0", ",", "1"}], "}"}], ",", 
+            RowBox[{"PlotStyle", " ", "->", " ", 
+             RowBox[{"{", 
+              RowBox[{"Red", ",", "Dashed", ",", "Thick"}], "}"}]}]}], 
+           "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"(*", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+           "Calculations", " ", "for", " ", "the", " ", "coefficients"}], 
+           "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"(*", "a0", "*)"}], 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"1", "/", "10"}], ")"}], 
+            RowBox[{"Integrate", "[", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"HeavisideTheta", "[", 
+                 RowBox[{"x", "-", "2.5"}], "]"}], "-", 
+                RowBox[{"HeavisideTheta", "[", 
+                 RowBox[{"x", "-", "5"}], "]"}], "+", 
+                RowBox[{"HeavisideTheta", "[", 
+                 RowBox[{"x", "-", "7.5"}], "]"}]}], ")"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"x", ",", "0", ",", "10"}], "}"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"(*", "an", "*)"}], 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"2", "/", "10"}], ")"}], 
+            RowBox[{"Integrate", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"HeavisideTheta", "[", 
+                  RowBox[{"x", "-", "2.5"}], "]"}], "-", 
+                 RowBox[{"HeavisideTheta", "[", 
+                  RowBox[{"x", "-", "5"}], "]"}], "+", 
+                 RowBox[{"HeavisideTheta", "[", 
+                  RowBox[{"x", "-", "7.5"}], "]"}]}], ")"}], "*", 
+               RowBox[{"Cos", "[", 
+                RowBox[{"2", "*", "i", "*", "Pi", "*", 
+                 RowBox[{"x", "/", "10"}]}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"x", ",", "0", ",", "10"}], "}"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"(*", "bn", "*)"}], 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"2", "/", "10"}], ")"}], 
+            RowBox[{"Integrate", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"HeavisideTheta", "[", 
+                  RowBox[{"x", "-", "2.5"}], "]"}], "-", 
+                 RowBox[{"HeavisideTheta", "[", 
+                  RowBox[{"x", "-", "5"}], "]"}], "+", 
+                 RowBox[{"HeavisideTheta", "[", 
+                  RowBox[{"x", "-", "7.5"}], "]"}]}], ")"}], "*", 
+               RowBox[{"Sin", "[", 
+                RowBox[{"2", "*", "i", "*", "Pi", "*", 
+                 RowBox[{"x", "/", "10"}]}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"x", ",", "0", ",", "10"}], "}"}]}], "]"}]}], ";"}], 
+          "\[IndentingNewLine]", "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"Manipulate", "[", 
+          RowBox[{
+           RowBox[{"Show", "[", 
+            RowBox[{
+             RowBox[{"Plot", "[", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"HeavisideTheta", "[", 
+                  RowBox[{"x", "-", "2.5"}], "]"}], "-", 
+                 RowBox[{"HeavisideTheta", "[", 
+                  RowBox[{"x", "-", "5"}], "]"}], "+", 
+                 RowBox[{"HeavisideTheta", "[", 
+                  RowBox[{"x", "-", "7.5"}], "]"}]}], ")"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"x", ",", "0", ",", "10"}], "}"}], ",", 
+               RowBox[{"PlotStyle", " ", "->", " ", 
+                RowBox[{"{", 
+                 RowBox[{"Red", ",", "Dashed", ",", "Thick"}], "}"}]}]}], 
+              "]"}], ",", 
+             RowBox[{"Plot", "[", 
+              RowBox[{
+               RowBox[{"0.5", "+", 
+                RowBox[{"Sum", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    FractionBox["1", 
+                    RowBox[{"5", " ", "i"}]], 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "1.5915494309189533`"}], " ", 
+                    RowBox[{"Sin", "[", 
+                    FractionBox[
+                    RowBox[{"i", " ", "\[Pi]"}], "2"], "]"}]}], "+", 
+                    RowBox[{"1.5915494309189537`", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"i", " ", "\[Pi]"}], "]"}]}], "-", 
+                    RowBox[{"1.5915494309189533`", " ", 
+                    RowBox[{"Sin", "[", 
+                    FractionBox[
+                    RowBox[{"3", " ", "i", " ", "\[Pi]"}], "2"], "]"}]}], "+", 
+                    RowBox[{"1.591549430918953`", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"2", " ", "i", " ", "\[Pi]"}], "]"}]}]}], ")"}]}],
+                     ")"}], "*", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"2", "*", "i", "*", "Pi", "*", 
+                    RowBox[{"x", "/", "10"}]}], "]"}]}], "+", 
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    FractionBox["1", 
+                    RowBox[{"5", " ", "i"}]], 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"1.5915494309189533`", " ", 
+                    RowBox[{"Cos", "[", 
+                    FractionBox[
+                    RowBox[{"i", " ", "\[Pi]"}], "2"], "]"}]}], "-", 
+                    RowBox[{"1.5915494309189537`", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"i", " ", "\[Pi]"}], "]"}]}], "+", 
+                    RowBox[{"1.5915494309189533`", " ", 
+                    RowBox[{"Cos", "[", 
+                    FractionBox[
+                    RowBox[{"3", " ", "i", " ", "\[Pi]"}], "2"], "]"}]}], "-", 
+                    RowBox[{"1.591549430918953`", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"2", " ", "i", " ", "\[Pi]"}], "]"}]}]}], ")"}]}],
+                     ")"}], "*", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"2", "*", "i", "*", "Pi", "*", 
+                    RowBox[{"x", "/", "10"}]}], "]"}]}]}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"i", ",", "n"}], "}"}]}], "]"}]}], ",", 
+               RowBox[{"{", 
+                RowBox[{"x", ",", "0", ",", "10"}], "}"}], ",", 
+               RowBox[{"PlotPoints", "\[Rule]", 
+                RowBox[{"ControlActive", "[", 
+                 RowBox[{"30", ",", "150"}], "]"}]}]}], "]"}], ",", 
+             RowBox[{"ParametricPlot", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"2.5", ",", "t"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"t", ",", "0", ",", "1"}], "}"}], ",", 
+               RowBox[{"PlotStyle", " ", "->", " ", 
+                RowBox[{"{", 
+                 RowBox[{"Red", ",", "Dashed", ",", "Thick"}], "}"}]}]}], 
+              "]"}], ",", 
+             RowBox[{"ParametricPlot", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"5", ",", "t"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"t", ",", "0", ",", "1"}], "}"}], ",", 
+               RowBox[{"PlotStyle", " ", "->", " ", 
+                RowBox[{"{", 
+                 RowBox[{"Red", ",", "Dashed", ",", "Thick"}], "}"}]}]}], 
+              "]"}], ",", 
+             RowBox[{"ParametricPlot", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"7.5", ",", "t"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"t", ",", "0", ",", "1"}], "}"}], ",", 
+               RowBox[{"PlotStyle", " ", "->", " ", 
+                RowBox[{"{", 
+                 RowBox[{"Red", ",", "Dashed", ",", "Thick"}], "}"}]}]}], 
+              "]"}], ",", 
+             RowBox[{"ParametricPlot", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"10", ",", "t"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"t", ",", "0", ",", "1"}], "}"}], ",", 
+               RowBox[{"PlotStyle", " ", "->", " ", 
+                RowBox[{"{", 
+                 RowBox[{"Red", ",", "Dashed", ",", "Thick"}], "}"}]}]}], 
+              "]"}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"n", ",", "1", ",", "50", ",", "1"}], "}"}], ",", 
+           RowBox[{"FrameLabel", "\[Rule]", "\"\<For a square wave\>\""}]}], 
+          "]"}]}], "\[IndentingNewLine]", ",", "\"\<Output\>\""}], "]"}], ",",
+       "\[IndentingNewLine]", 
+      RowBox[{"TextCell", "[", "\[IndentingNewLine]", 
+       RowBox[{
+       "\"\<Here we can more clearly see how drastic the difference is \
+between a low n value, like n=5, and a higher n value, like n=45. Moving on \
+to the sawtooth wave, we find the following:\>\"", ",", "\"\<Text\>\""}], 
+       "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ExpressionCell", "[", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"f", 
+         RowBox[{"(", "x", ")"}]}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"fxsttop", " ", "=", " ", 
+          RowBox[{"Plot", "[", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"x", "/", "5"}], "-", 
+              RowBox[{"HeavisideTheta", "[", 
+               RowBox[{"x", "-", "5"}], "]"}]}], ")"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", "0", ",", "10"}], "}"}], ",", 
+            RowBox[{"PlotStyle", " ", "->", " ", 
+             RowBox[{"{", 
+              RowBox[{"Red", ",", "Dashed", ",", "Thick"}], "}"}]}]}], 
+           "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"fxstside1", " ", "=", " ", 
+          RowBox[{"ParametricPlot", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"5", ",", "t"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"t", ",", "0", ",", "1"}], "}"}], ",", 
+            RowBox[{"PlotStyle", " ", "->", " ", 
+             RowBox[{"{", 
+              RowBox[{"Red", ",", "Dashed", ",", "Thick"}], "}"}]}]}], 
+           "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"fxstside2", " ", "=", " ", 
+          RowBox[{"ParametricPlot", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"10", ",", "t"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"t", ",", "0", ",", "1"}], "}"}], ",", 
+            RowBox[{"PlotStyle", " ", "->", " ", 
+             RowBox[{"{", 
+              RowBox[{"Red", ",", "Dashed", ",", "Thick"}], "}"}]}]}], 
+           "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"(*", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+           "Calculations", " ", "for", " ", "the", " ", "coefficients"}], 
+           "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"(*", "a0", "*)"}], 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"1", "/", "10"}], ")"}], 
+            RowBox[{"Integrate", "[", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"x", "/", "5"}], "-", 
+                RowBox[{"HeavisideTheta", "[", 
+                 RowBox[{"x", "-", "5"}], "]"}]}], ")"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"x", ",", "0", ",", "10"}], "}"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"(*", "an", "*)"}], 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"2", "/", "10"}], ")"}], 
+            RowBox[{"Integrate", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"x", "/", "5"}], "-", 
+                 RowBox[{"HeavisideTheta", "[", 
+                  RowBox[{"x", "-", "5"}], "]"}]}], ")"}], "*", 
+               RowBox[{"Cos", "[", 
+                RowBox[{"2", "*", "i", "*", "Pi", "*", 
+                 RowBox[{"x", "/", "10"}]}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"x", ",", "0", ",", "10"}], "}"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"(*", "bn", "*)"}], 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"2", "/", "10"}], ")"}], 
+            RowBox[{"Integrate", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"x", "/", "5"}], "-", 
+                 RowBox[{"HeavisideTheta", "[", 
+                  RowBox[{"x", "-", "5"}], "]"}]}], ")"}], "*", 
+               RowBox[{"Sin", "[", 
+                RowBox[{"2", "*", "i", "*", "Pi", "*", 
+                 RowBox[{"x", "/", "10"}]}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"x", ",", "0", ",", "10"}], "}"}]}], "]"}]}], ";"}], 
+          "\[IndentingNewLine]", "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"Manipulate", "[", 
+          RowBox[{
+           RowBox[{"Show", "[", 
+            RowBox[{
+             RowBox[{"Plot", "[", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"x", "/", "5"}], "-", 
+                 RowBox[{"HeavisideTheta", "[", 
+                  RowBox[{"x", "-", "5"}], "]"}]}], ")"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"x", ",", "0", ",", "10"}], "}"}], ",", 
+               RowBox[{"PlotStyle", " ", "->", " ", 
+                RowBox[{"{", 
+                 RowBox[{"Red", ",", "Dashed", ",", "Thick"}], "}"}]}]}], 
+              "]"}], ",", 
+             RowBox[{"Plot", "[", 
+              RowBox[{
+               RowBox[{"0.5", "+", 
+                RowBox[{"Sum", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"(", 
+                    FractionBox[
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"i", " ", "\[Pi]"}], "+", 
+                    RowBox[{"2", " ", "i", " ", "\[Pi]", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"i", " ", "\[Pi]"}], "]"}]}], "-", 
+                    RowBox[{"2", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"i", " ", "\[Pi]"}], "]"}]}]}], ")"}], " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"i", " ", "\[Pi]"}], "]"}]}], 
+                    RowBox[{
+                    SuperscriptBox["i", "2"], " ", 
+                    SuperscriptBox["\[Pi]", "2"]}]], ")"}], "*", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"2", "*", "i", "*", "Pi", "*", 
+                    RowBox[{"x", "/", "10"}]}], "]"}]}], "+", 
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"-", 
+                    FractionBox[
+                    RowBox[{
+                    RowBox[{"i", " ", "\[Pi]", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"i", " ", "\[Pi]"}], "]"}]}], "+", 
+                    RowBox[{"i", " ", "\[Pi]", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"2", " ", "i", " ", "\[Pi]"}], "]"}]}], "-", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"2", " ", "i", " ", "\[Pi]"}], "]"}]}], 
+                    RowBox[{
+                    SuperscriptBox["i", "2"], " ", 
+                    SuperscriptBox["\[Pi]", "2"]}]]}], ")"}], "*", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"2", "*", "i", "*", "Pi", "*", 
+                    RowBox[{"x", "/", "10"}]}], "]"}]}]}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"i", ",", "n"}], "}"}]}], "]"}]}], ",", 
+               RowBox[{"{", 
+                RowBox[{"x", ",", "0", ",", "10"}], "}"}], ",", 
+               RowBox[{"PlotPoints", "\[Rule]", 
+                RowBox[{"ControlActive", "[", 
+                 RowBox[{"30", ",", "150"}], "]"}]}]}], "]"}], ",", 
+             RowBox[{"ParametricPlot", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"5", ",", "t"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"t", ",", "0", ",", "1"}], "}"}], ",", 
+               RowBox[{"PlotStyle", " ", "->", " ", 
+                RowBox[{"{", 
+                 RowBox[{"Red", ",", "Dashed", ",", "Thick"}], "}"}]}]}], 
+              "]"}], ",", 
+             RowBox[{"ParametricPlot", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"10", ",", "t"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"t", ",", "0", ",", "1"}], "}"}], ",", 
+               RowBox[{"PlotStyle", " ", "->", " ", 
+                RowBox[{"{", 
+                 RowBox[{"Red", ",", "Dashed", ",", "Thick"}], "}"}]}]}], 
+              "]"}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"n", ",", "1", ",", "50", ",", "1"}], "}"}], ",", 
+           RowBox[{"FrameLabel", "\[Rule]", "\"\<For a sawtooth wave\>\""}]}],
+           "]"}]}], "\[IndentingNewLine]", ",", "\"\<Output\>\""}], "]"}], 
+      ",", "\[IndentingNewLine]", 
+      RowBox[{"TextCell", "[", "\[IndentingNewLine]", 
+       RowBox[{
+       "\"\<where we start to find a fairly accurate approximation upwards of \
+n=25. The accuracy of a Fourier Series is limited only by the number of terms \
+used, and as we have seen here, we can pretty quickly find close \
+approximations of other periodic waveforms.\>\"", ",", "\"\<Text\>\""}], 
+       "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"TextCell", "[", "\[IndentingNewLine]", 
+       RowBox[{
+       "\"\<It is important to familiarize yourself with Fourier analysis \
+with ''Trigg'' Functions, as they provide a useful and intuitive application \
+for the orthogonal properties of sine and cosine. Moving forward, we will see \
+Fourier analysis with Bessel functions, where a similar process will be \
+applied.\>\"", ",", "\"\<Text\>\""}], "]"}]}], "\[IndentingNewLine]", "}"}], 
+    ",", "\[IndentingNewLine]", 
+    RowBox[{"WindowTitle", "\[Rule]", "\"\<TriggFourierSeries\>\""}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"NotebookSave", "[", "TriggFourierSeries", "]"}]}], "Input",
+ CellChangeTimes->CompressedData["
+1:eJwd0E8ogwEABfBlKzaNw2aNNmwcNo3Pca2R5e+kJdHUhlJoqMVYS9KcJnER
+S8SY1KZxkD/RiIimaQc1W5FY1pottdAu5Hvf4fWrd3iHJ+o1tvVl0Gg0IRnI
+93QJJMGEqqTVLIXxo5xq6POwdfClw9YDZ6fo/XBZETXAPLt2CAYP/SaYiofH
+4YLmbhI2yIXTUB8ZsMF1rnUJchm1q1BcXrwJOYnObSgThM9gTYB1BQ1V3Bv4
+ZinywzHZdwQuZu/H4Aaz8gN+Xd5+QquBmYbXcd4vtddt+aP6PS1DShrbEvFg
+k5tTAHOJeQLaFyc0sFT54IQjLp8L1u/+UDqJ2B4s3J0/gJoZ1imUnLC9UGFU
+X0Clz5SEnjV9CjYMNtLLSB0tw5kwFEhw4NOznQ+jupV8+H7uLoTmYy8Bh++z
+HGr8Ka6jDFbM7cBE0kmZFYprmklH0/JWKFEx59ofyd8HX9fhP9+W8mw=
+  "],
+ CellLabel->"In[2]:=",ExpressionUUID->"7ca0a791-8a62-42ca-ba67-48f9531ca893"],
+
+Cell[BoxData[
+ TemplateBox[{
+   FrontEndObject[
+    LinkObject["qmnnt_shm", 3, 1]], 22, 
+   "FrontEndObject[LinkObject[\"qmnnt_shm\", 3, 1]]", "22", 
+   "\"TriggFourierSeries\""},
+  "NotebookObjectUnsaved"]], "Output",
+ CellChangeTimes->{
+  3.870379497174262*^9, 3.87037966329879*^9, 3.8703798851142707`*^9, 
+   3.8703800611579313`*^9, 3.8703802168407726`*^9, {3.8703803815443597`*^9, 
+   3.870380400880347*^9}, 3.870444797222742*^9, 3.870446201729594*^9, {
+   3.8709915801425104`*^9, 3.8709916090460634`*^9}},
+ CellLabel->"Out[2]=",ExpressionUUID->"294b0ae9-12fc-4093-b6c3-14849ea4bf58"]
+}, Open  ]]
+},
+WindowSize->{684, 645},
+WindowMargins->{{96.75, Automatic}, {Automatic, 30}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"db16b5f4-3a12-4b46-a174-cc771b7f3612"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 34426, 787, 3276, "Input",ExpressionUUID->"7ca0a791-8a62-42ca-ba67-48f9531ca893"],
+Cell[35009, 811, 588, 12, 69, "Output",ExpressionUUID->"294b0ae9-12fc-4093-b6c3-14849ea4bf58"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

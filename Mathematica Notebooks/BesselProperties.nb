@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     31631,        625]
-NotebookOptionsPosition[     29698,        592]
-NotebookOutlinePosition[     30136,        609]
-CellTagsIndexPosition[     30093,        606]
+NotebookDataLength[     31625,        625]
+NotebookOptionsPosition[     29692,        592]
+NotebookOutlinePosition[     30130,        609]
+CellTagsIndexPosition[     30087,        606]
 WindowTitle->BesselProperties
 WindowFrame->Normal*)
 
@@ -23,7 +23,7 @@ Notebook[{
 Cell[CellGroupData[{
 Cell["Orthogonality and Fourier Analysis with Bessel Functions", "Title",
  FontColor->GrayLevel[
-  0],ExpressionUUID->"028c9a7c-7427-42f5-bc4a-99b5b760b6b8"],
+  0],ExpressionUUID->"a5c6724a-3ddf-44c4-9d9b-8cda5d725213"],
 
 Cell["\<\
 In the Trigg Orthogonality notebook, we discussed the general inner product \
@@ -33,7 +33,7 @@ a look at the orthogonality of Bessel functions, given by equation (2.32). \
 Once again, these functions do not visually appear to be perpendicular to one \
 another. In the following example, two Bessel functions of the first kind \
 will be shown, with n=1 in red and n=2 in green.\
-\>", "Text",ExpressionUUID->"f9fb7a6d-80ea-42be-8baf-feee9727f82e"],
+\>", "Text",ExpressionUUID->"21d91f5f-6ad4-49bd-a3df-e0f9ba62fd73"],
 
 Cell[BoxData[
  GraphicsBox[{{{}, {}, 
@@ -127,7 +127,7 @@ x4O02w79DHEvqFp4s6vHedBxu2th5OwKIf6OO0mTPFS9PuVgvsABnCe6Xi6/
 eHgo0vij9YAVKrxy1mlN82Cv1eyodcAANxRFf87O8jAbaLTlzoCL/v8A19U6
 4A==
        "]]},
-     Annotation[#, "Charting`Private`Tag$2874149#1"]& ], 
+     Annotation[#, "Charting`Private`Tag$3399#1"]& ], 
     TagBox[
      {RGBColor[0, 1, 0], AbsoluteThickness[1.6], Opacity[1.], 
       LineBox[CompressedData["
@@ -274,7 +274,7 @@ ihriQ/nHkwn9r4PRHQ29ZPsRPoQrbh7eXx2AzpNZjop8PpTFcS/M1J9Hajbe
 fR8m+BBQvS1BpMQDCQmy8lOm+FBaq+rcVnsCcV5v83Sd5sM1QYkh+eKDqNLz
 odbmf3zYKdY6tbNoF0pXEP01N8cHUtTM+4G4R/X/AKb0xas=
        "]]},
-     Annotation[#, "Charting`Private`Tag$2874149#2"]& ]}, {}},
+     Annotation[#, "Charting`Private`Tag$3399#2"]& ]}, {}},
   AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
   Axes->{True, True},
   AxesLabel->{None, None},
@@ -313,8 +313,8 @@ odbmf3zYKdY6tbNoF0pXEP01N8cHUtTM+4G4R/X/AKb0xas=
      Scaled[0.02]}, {
      Scaled[0.05], 
      Scaled[0.05]}},
-  Ticks->{Automatic, Automatic}]], "Output",ExpressionUUID->"069097ee-0499-\
-471d-8f06-833f5027899a"],
+  Ticks->{Automatic, Automatic}]], "Output",ExpressionUUID->"0d658436-a203-\
+48bf-b786-53c22b23fcbf"],
 
 Cell["\<\
 Let's now try graphing the integrand of equation (2.32), where m is the order \
@@ -324,7 +324,7 @@ integrand of equation (2.32), while the red and green curves represent the \
 individual Bessel functions, which have been initialized to the previously \
 discussed situation with n=1 and n=2. The result of equation (2.32) is also \
 included above the graph.\
-\>", "Text",ExpressionUUID->"70d6e41d-3b89-4a4c-8bf4-cb8561c05207"],
+\>", "Text",ExpressionUUID->"7ae5ed94-ccfc-43fb-87c1-fc3fd49224bf"],
 
 Cell[BoxData[
  TagBox[
@@ -388,8 +388,8 @@ $CellContext`x)/$CellContext`a$$], {$CellContext`x, 0, $CellContext`a$$}]]],
     UntrackedVariables:>{Typeset`size$$}], "Manipulate",
    Deployed->True,
    StripOnInput->False],
-  Manipulate`InterpretManipulate[1]]], "Output",ExpressionUUID->"36ea6db2-\
-257e-46e4-9cd0-2378d9f3a814"],
+  Manipulate`InterpretManipulate[1]]], "Output",ExpressionUUID->"b1cdca03-\
+6e39-4842-a12b-86966c0971fa"],
 
 Cell["\<\
 Here we can clearly see that the area under the curve (the shaded area) \
@@ -398,14 +398,14 @@ totals to some nonzero value when the functions are not orthogonal. Try out \
 adjusting the sliders to convince yourself of these conclusions. Let's take a \
 look next at an application of this orthogonality relationship: Fourier \
 Analysis with Bessel Functions.\
-\>", "Text",ExpressionUUID->"f43385e8-5c1f-4238-8f7f-795326909dcf"],
+\>", "Text",ExpressionUUID->"1f31003d-ede6-437f-a9cb-819095d5b5f0"],
 
 Cell["\<\
 As discussed previously, Fourier analysis makes use of the orthogonality of a \
 special function to 'pick out' individual terms and find their coefficients. \
 For Bessel functions of the first kind, the Fourier expansion is introduced \
 in equation (2.35), restated below:\
-\>", "Text",ExpressionUUID->"22f39e93-e735-4bac-873e-b36af2d78351"],
+\>", "Text",ExpressionUUID->"f3c714af-fe17-4c48-95b2-ae8203cf61c1"],
 
 Cell[BoxData[
  TagBox[
@@ -419,19 +419,19 @@ Cell[BoxData[
       RowBox[{
        RowBox[{"k_", "[", 
         RowBox[{"m", ",", "n"}], "]"}], " ", "\[Rho]"}], "]"}]}]}]}],
-  HoldForm]], "Output",ExpressionUUID->"bb263433-22da-4a7f-a6ac-e607566faf61"],
+  HoldForm]], "Output",ExpressionUUID->"c254c2c2-cf80-4f6a-99e0-027111be1b18"],
 
 Cell["\<\
  This Fourier-Bessel series is more specific in utility than the Fourier \
 series with sine and cosine, often being used as solutions to differential \
 equations. To get a better sense of using Fourier analysis with Bessel \
 functions, let's look at a few examples.\
-\>", "Text",ExpressionUUID->"69a0a46d-eeaf-41bb-b7a3-954ea866ba78"],
+\>", "Text",ExpressionUUID->"3266fc95-4bbf-4ed3-b417-d6af5e03469d"],
 
 Cell["\<\
 First, we'll try a very simple function, f(x)=1, for 0<x<1. Using the \
 orthogonality of Bessel functions of the first kind, our coefficients will be:\
-\>", "Text",ExpressionUUID->"0dde5ef2-9c35-4507-8023-6a875f546d0f"],
+\>", "Text",ExpressionUUID->"b7438f5a-fa64-4209-a780-bdb5a691161b"],
 
 Cell[BoxData[
  TagBox[
@@ -455,7 +455,7 @@ Cell[BoxData[
         RowBox[{"m", "+", "1"}], ",", 
         RowBox[{"BesselJZero", "[", 
          RowBox[{"m", ",", "n"}], "]"}]}], "]"}], "2"]}]]}],
-  HoldForm]], "Output",ExpressionUUID->"d7e93562-a2eb-4de7-adf1-064148f96012"],
+  HoldForm]], "Output",ExpressionUUID->"fb382099-6fe9-4c43-b5ce-56c00a03f805"],
 
 Cell["\<\
 Evaluating these expressions, and plugging them into equation (2.35) gives us \
@@ -463,7 +463,7 @@ our Fourier-Bessel series. In the figure, the dotted red curve is our \
 function f(x), while the blue curve is our Fourier-Bessel Series. Using the \
 slider to increase n, you will see that adding in more terms makes our \
 approximation more accurate.\
-\>", "Text",ExpressionUUID->"501d3fb9-54a2-4831-aabc-39de733b91c7"],
+\>", "Text",ExpressionUUID->"30fe14d5-884d-4e4c-bed6-3eb458d04f0e"],
 
 Cell[BoxData[
  TagBox[
@@ -512,8 +512,8 @@ Cell[BoxData[
     UntrackedVariables:>{Typeset`size$$}], "Manipulate",
    Deployed->True,
    StripOnInput->False],
-  Manipulate`InterpretManipulate[1]]], "Output",ExpressionUUID->"df1642c3-\
-8fb4-428d-bc3c-86008ee461aa"],
+  Manipulate`InterpretManipulate[1]]], "Output",ExpressionUUID->"9b7be601-\
+87c7-4fdd-aef6-f88d9feef357"],
 
 Cell["\<\
 Note that the values for n and m are limited to smaller numbers. This is \
@@ -524,13 +524,13 @@ instead display an '$Aborted' message. This just means that the graph is not \
 displayed while Mathematica finishes running calculations, so if you let it \
 run for some time, the graph should eventually appear. If worse comes to \
 worse, you can close and reopen the notebook. \
-\>", "Text",ExpressionUUID->"daeede7b-66c3-4205-9f05-0e067cdc3a10"],
+\>", "Text",ExpressionUUID->"4fc33958-aed0-4e8c-93c0-fd3e36e1f2f8"],
 
 Cell["\<\
 Let's now take a look at another simple function, f(x)=x (represented by the \
 dotted red curve), for 0<x<1, while the Fourier-Bessel Series is represented \
 by the blue curve. We find the following:\
-\>", "Text",ExpressionUUID->"feab5048-fd80-422c-83a7-fba3655b6e6d"],
+\>", "Text",ExpressionUUID->"882732b7-510f-45df-8e45-7e37899dea44"],
 
 Cell[BoxData[
  TagBox[
@@ -580,14 +580,14 @@ Cell[BoxData[
     UntrackedVariables:>{Typeset`size$$}], "Manipulate",
    Deployed->True,
    StripOnInput->False],
-  Manipulate`InterpretManipulate[1]]], "Output",ExpressionUUID->"6389dd42-\
-d905-401b-88c5-df561cc980fb"],
+  Manipulate`InterpretManipulate[1]]], "Output",ExpressionUUID->"e5c41f37-\
+c4fc-4e14-9d4a-afc2d77a8a57"],
 
 Cell["\<\
 Starting from this point, it is clear that we can expand these examples to \
 match the square and sawtooth waveforms from the Trigg Fourier Series \
 notebook.\
-\>", "Text",ExpressionUUID->"5d7006f2-c9bc-4cbc-a5ac-14faea7ca831"]
+\>", "Text",ExpressionUUID->"7b292fd3-a734-400d-89f7-f8bb1870beb3"]
 }, Open  ]]
 },
 WindowSize->{582, 654},
@@ -595,7 +595,7 @@ WindowMargins->{{423, Automatic}, {Automatic, 40.5}},
 WindowTitle->"BesselProperties",
 FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
 StyleDefinitions->"Default.nb",
-ExpressionUUID->"13b7b6a1-8de0-4e08-a47c-c61060f39e14"
+ExpressionUUID->"006352d0-ac8c-46cd-93f6-bfdf8a2fe348"
 ]
 (* End of Notebook Content *)
 
@@ -609,23 +609,23 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[610, 23, 157, 2, 219, "Title",ExpressionUUID->"028c9a7c-7427-42f5-bc4a-99b5b760b6b8"],
-Cell[770, 27, 591, 8, 166, "Text",ExpressionUUID->"f9fb7a6d-80ea-42be-8baf-feee9727f82e"],
-Cell[1364, 37, 15692, 279, 230, "Output",ExpressionUUID->"069097ee-0499-471d-8f06-833f5027899a"],
-Cell[17059, 318, 573, 8, 166, "Text",ExpressionUUID->"70d6e41d-3b89-4a4c-8bf4-cb8561c05207"],
-Cell[17635, 328, 2979, 63, 431, "Output",ExpressionUUID->"36ea6db2-257e-46e4-9cd0-2378d9f3a814"],
-Cell[20617, 393, 492, 7, 70, "Text",ExpressionUUID->"f43385e8-5c1f-4238-8f7f-795326909dcf"],
-Cell[21112, 402, 351, 5, 70, "Text",ExpressionUUID->"22f39e93-e735-4bac-873e-b36af2d78351"],
-Cell[21466, 409, 411, 12, 70, "Output",ExpressionUUID->"bb263433-22da-4a7f-a6ac-e607566faf61"],
-Cell[21880, 423, 344, 5, 70, "Text",ExpressionUUID->"69a0a46d-eeaf-41bb-b7a3-954ea866ba78"],
-Cell[22227, 430, 229, 3, 70, "Text",ExpressionUUID->"0dde5ef2-9c35-4507-8023-6a875f546d0f"],
-Cell[22459, 435, 724, 22, 70, "Output",ExpressionUUID->"d7e93562-a2eb-4de7-adf1-064148f96012"],
-Cell[23186, 459, 410, 6, 70, "Text",ExpressionUUID->"501d3fb9-54a2-4831-aabc-39de733b91c7"],
-Cell[23599, 467, 2440, 48, 70, "Output",ExpressionUUID->"df1642c3-8fb4-428d-bc3c-86008ee461aa"],
-Cell[26042, 517, 663, 9, 70, "Text",ExpressionUUID->"daeede7b-66c3-4205-9f05-0e067cdc3a10"],
-Cell[26708, 528, 278, 4, 70, "Text",ExpressionUUID->"feab5048-fd80-422c-83a7-fba3655b6e6d"],
-Cell[26989, 534, 2453, 49, 70, "Output",ExpressionUUID->"6389dd42-d905-401b-88c5-df561cc980fb"],
-Cell[29445, 585, 237, 4, 70, "Text",ExpressionUUID->"5d7006f2-c9bc-4cbc-a5ac-14faea7ca831"]
+Cell[610, 23, 157, 2, 219, "Title",ExpressionUUID->"a5c6724a-3ddf-44c4-9d9b-8cda5d725213"],
+Cell[770, 27, 591, 8, 166, "Text",ExpressionUUID->"21d91f5f-6ad4-49bd-a3df-e0f9ba62fd73"],
+Cell[1364, 37, 15686, 279, 230, "Output",ExpressionUUID->"0d658436-a203-48bf-b786-53c22b23fcbf"],
+Cell[17053, 318, 573, 8, 166, "Text",ExpressionUUID->"7ae5ed94-ccfc-43fb-87c1-fc3fd49224bf"],
+Cell[17629, 328, 2979, 63, 431, "Output",ExpressionUUID->"b1cdca03-6e39-4842-a12b-86966c0971fa"],
+Cell[20611, 393, 492, 7, 70, "Text",ExpressionUUID->"1f31003d-ede6-437f-a9cb-819095d5b5f0"],
+Cell[21106, 402, 351, 5, 70, "Text",ExpressionUUID->"f3c714af-fe17-4c48-95b2-ae8203cf61c1"],
+Cell[21460, 409, 411, 12, 70, "Output",ExpressionUUID->"c254c2c2-cf80-4f6a-99e0-027111be1b18"],
+Cell[21874, 423, 344, 5, 70, "Text",ExpressionUUID->"3266fc95-4bbf-4ed3-b417-d6af5e03469d"],
+Cell[22221, 430, 229, 3, 70, "Text",ExpressionUUID->"b7438f5a-fa64-4209-a780-bdb5a691161b"],
+Cell[22453, 435, 724, 22, 70, "Output",ExpressionUUID->"fb382099-6fe9-4c43-b5ce-56c00a03f805"],
+Cell[23180, 459, 410, 6, 70, "Text",ExpressionUUID->"30fe14d5-884d-4e4c-bed6-3eb458d04f0e"],
+Cell[23593, 467, 2440, 48, 70, "Output",ExpressionUUID->"9b7be601-87c7-4fdd-aef6-f88d9feef357"],
+Cell[26036, 517, 663, 9, 70, "Text",ExpressionUUID->"4fc33958-aed0-4e8c-93c0-fd3e36e1f2f8"],
+Cell[26702, 528, 278, 4, 70, "Text",ExpressionUUID->"882732b7-510f-45df-8e45-7e37899dea44"],
+Cell[26983, 534, 2453, 49, 70, "Output",ExpressionUUID->"e5c41f37-c4fc-4e14-9d4a-afc2d77a8a57"],
+Cell[29439, 585, 237, 4, 70, "Text",ExpressionUUID->"7b292fd3-a734-400d-89f7-f8bb1870beb3"]
 }, Open  ]]
 }
 ]
